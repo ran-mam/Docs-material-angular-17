@@ -1,0 +1,407 @@
+<div class="mt-4 align-items-end">
+  <div class="width-600 lh-text mt-4">
+    The MatDialog service can be used to open modal dialogs with Material Design styling and animations.
+  </div>
+
+  <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Dialog Overview</p>
+    <ol>
+      <li>
+        <mat-form-field>
+          <mat-label>What's your name?</mat-label>
+          <input matInput [(ngModel)]="name">
+        </mat-form-field>
+      </li>
+      <li>
+        <button mat-raised-button (click)="openDialog()">Pick one</button>
+      </li>
+      @if (animal) {
+      <li>You chose: <em>{{animal}}</em></li>
+      }
+    </ol>
+
+  <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+    <div class="card width-600">
+      <div class="card-header" role="tab" id="section1HeaderId">
+        <h5 class="mb-0">
+          <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+            href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+            component
+          </a>
+        </h5>
+      </div>
+      <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+        <div class="card-body">
+          <pre class="pt-4">
+                {{code1}}
+             </pre>
+        </div>
+      </div>
+    </div>
+    <div class="card width-600">
+      <div class="card-header" role="tab" id="section2HeaderId">
+        <h5 class="mb-0">
+          <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+            href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+            HTML
+          </a>
+        </h5>
+      </div>
+      <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+        <div class="card-body">
+          <pre class="pt-4">
+                {{code2}}
+             </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+    <div class="card width-600">
+      <div class="card-header bg-secondary text-white" role="tab" id="section3HeaderId">
+        <h5 class="mb-0">
+          <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+            href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+            component
+          </a>
+        </h5>
+      </div>
+      <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+        <div class="card-body">
+          <pre class="pt-4">
+                {{code3}}
+             </pre>
+        </div>
+      </div>
+    </div>
+    <div class="card width-600">
+      <div class="card-header bg-secondary text-white" role="tab" id="section4HeaderId">
+        <h5 class="mb-0">
+          <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+            href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+            HTML
+          </a>
+        </h5>
+      </div>
+      <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+        <div class="card-body">
+          <pre class="pt-4">
+                {{code4}}
+             </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    A dialog is opened by calling the open method with a component to be loaded and an optional config object. The
+    open method will return an instance of MatDialogRef:
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c1}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    The MatDialogRef provides a handle on the opened dialog. It can be used to close the dialog and to receive
+    notifications when the dialog has been closed. Any notification Observables will complete when the dialog closes.
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c2}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    Components created via MatDialog can inject MatDialogRef and use it to close the dialog in which they are contained.
+    When closing, an optional result value can be provided. This result value is forwarded as the result of the
+    afterClosed Observable.
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c3}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    <h3 class="fw-bold">Specifying global configuration defaults </h3>
+    Default dialog options can be specified by providing an instance of MatDialogConfig for MAT_DIALOG_DEFAULT_OPTIONS
+    in your application's root module.
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c4}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    <h3 class="fw-bold">Sharing data with the Dialog component.</h3>
+    If you want to share data with your dialog, you can use the data option to pass information to the dialog component.
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c5}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    To access the data in your dialog component, you have to use the MAT_DIALOG_DATA injection token:
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c6}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text mt-4">
+    Note that if you're using a template dialog (one that was opened with a TemplateRef), the data will be available
+    implicitly in the template:
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c7}}
+      </pre>
+  </div>
+
+  <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Injecting data when opening a dialog</p>
+
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+        <div class="card-header" role="tab" id="section3HeaderId">
+          <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+              href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+              component
+            </a>
+          </h5>
+        </div>
+        <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+          <div class="card-body">
+            <pre class="pt-4">
+                    {{code5}}
+                 </pre>
+          </div>
+        </div>
+      </div>
+      <div class="card width-600">
+        <div class="card-header" role="tab" id="section6HeaderId">
+          <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+              href="#section6ContentId" aria-expanded="true" aria-controls="section6ContentId">
+              HTML
+            </a>
+          </h5>
+        </div>
+        <div id="section6ContentId" class="collapse in" role="tabpanel" aria-labelledby="section6HeaderId">
+          <div class="card-body">
+            <pre class="pt-4">
+                    {{code6}}
+              </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="width-600 lh-text mt-4">
+    <h3 class="fw-bold">Dialog content</h3>
+    Several directives are available to make it easier to structure your dialog content:
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">mat-dialog-title</td>
+        <td>[Attr] Dialog title, applied to a heading element (e.g., < h1>, < h2>)</td>
+      </tr>
+      <tr>
+        <td scope="row">mat-dialog-content</td>
+        <td>Primary scrollable content of the dialog.</td>
+      </tr>
+      <tr>
+        <td scope="row">mat-dialog-actions</td>
+        <td>Container for action buttons at the bottom of the dialog. Button alignment can be controlled via the align
+          attribute which can be set to end and center.</td>
+      </tr>
+      <tr>
+        <td scope="row">mat-dialog-close</td>
+        <td>[Attr] Added to a < button>, makes the button close the dialog with an optional result from the bound value.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>For Example :</p>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c8}}
+      </pre>
+  </div>
+
+  <div class="width-600 lh-text">
+    Once a dialog opens, the dialog will automatically focus the first tabbable element. <br><br>
+    You can control which elements are tab stops with the tabindex attribute
+  </div>
+
+  <div class="card width-600 p-2">
+    <pre>
+        {{c9}}
+      </pre>
+  </div>
+
+  <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Dialog with header, scrollable content and actions</p>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+        <div class="card-header" role="tab" id="section8HeaderId">
+          <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+              href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+              component
+            </a>
+          </h5>
+        </div>
+        <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+          <div class="card-body">
+            <pre class="pt-4">
+                  <!-- {{code8}} -->
+               </pre>
+          </div>
+        </div>
+      </div>
+      <div class="card width-600">
+        <div class="card-header" role="tab" id="section9HeaderId">
+          <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+              href="#section9ContentId" aria-expanded="true" aria-controls="section8ContentId">
+              HTML
+            </a>
+          </h5>
+        </div>
+        <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+          <div class="card-body">
+            <pre class="pt-4">
+                  <!-- {{code9}} -->
+            </pre>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="width-600 lh-text">
+    <h3 class="fw-bold">Controlling the dialog animation</h3> <br>
+    You can control the duration of the dialog's enter and exit animations using the enterAnimationDuration and exitAnimationDuration options. If you want to disable the dialog's animation completely, you can do so by setting the properties to 0ms.
+  </div>
+
+  <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Dialog Animations</p>
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+        <div class="card-header" role="tab" id="section10HeaderId">
+          <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+              href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+              component
+            </a>
+          </h5>
+        </div>
+        <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+          <div class="card-body">
+            <pre class="pt-4">
+                  <!-- {{code10}} -->
+               </pre>
+          </div>
+        </div>
+      </div>
+      <div class="card width-600">
+        <div class="card-header" role="tab" id="section11HeaderId">
+          <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+              href="#section11ContentId" aria-expanded="true" aria-controls="section11ContentId">
+              HTML
+            </a>
+          </h5>
+        </div>
+        <div id="section11ContentId" class="collapse in" role="tabpanel" aria-labelledby="section11HeaderId">
+          <div class="card-body">
+            <pre class="pt-4">
+                  <!-- {{code11}} -->
+            </pre>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="width-600 lh-text">
+    <h3 class="fw-bold">Accessibility</h3> 
+    MatDialog creates modal dialogs that implements the ARIA role="dialog" pattern by default. You can change the dialog's role to alertdialog via MatDialogConfig. <br><br>
+You should provide an accessible label to this root dialog element by setting the ariaLabel or ariaLabelledBy properties of MatDialogConfig. You can additionally specify a description element ID via the ariaDescribedBy property of MatDialogConfig.
+  </div>
+
+  <div class="width-600 lh-text">
+    <h3 class="fw-bold">Keyboard interaction</h3> 
+    By default, the escape key closes MatDialog. While you can disable this behavior via the disableClose property of MatDialogConfig, doing this breaks the expected interaction pattern for the ARIA role="dialog" pattern.
+  </div>
+
+  <div class="width-600 lh-text">
+    <h3 class="fw-bold">Focus management</h3> 
+    When opened, MatDialog traps browser focus such that it cannot escape the root role="dialog" element. By default, the first tabbable element in the dialog receives focus. You can customize which element receives focus with the autoFocus property of MatDialogConfig, which supports the following values.
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>Behaviour</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">first-tabbable</td>
+        <td>Focus the first tabbable element. This is the default setting.</td>
+      </tr>
+      <tr>
+        <td scope="row">first-header</td>
+        <td>Focus the first header element (role="heading", h1 through h6)</td>
+      </tr>
+      <tr>
+        <td scope="row">dialog</td>
+        <td>Focus the root role="dialog" element.</td>
+      </tr>
+      <tr>
+        <td scope="row">Any CSS selector</td>
+        <td>Focus the first element matching the given selector.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="wdth-600 lh-text nb-4">
+    While the default setting applies the best behavior for most applications, special cases may benefit from these alternatives. Always test your application to verify the behavior that works best for your users.
+  </div>
+
+  <div class="width-600 lh-text">
+    <h3 class="fw-bold">Focus restauration</h3>
+    When closed, MatDialog restores focus to the element that previously held focus when the dialog opened. However, if that previously focused element no longer exists, you must add additional handling to return focus to an element that makes sense for the user's workflow. Opening a dialog from a menu is one common pattern that causes this situation. The menu closes upon clicking an item, thus the focused menu item is no longer in the DOM when the bottom sheet attempts to restore focus. <br><br>
+You can add handling for this situation with the afterClosed() observable from MatDialogRef.
+  </div>
+
+  <div class="card p-2">
+    <pre>{{c10}}</pre>
+  </div>
+
+
+</div>

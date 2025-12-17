@@ -1,0 +1,229 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600">
+      &lt;mat-slider> allows for the selection of a value from a range via mouse, touch, or keyboard, similar to &lt;input type="range">.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Slider</p>
+   <mat-slider>
+      <input matSliderThumb>
+    </mat-slider>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Selecting a value</h3>
+      By default the minimum value of the slider is 0, the maximum value is 100, and the thumb moves in increments of 1. These values can be changed by setting the min, max, and step attributes respectively. The initial value is set to the minimum value unless otherwise specified.
+   </div>
+
+   <div class="width-600 card p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Selecting a range</h3>
+      A &lt;mat-slider> can be converted into a range slider by projecting both a matSliderStartThumb and a matSliderEndThumb into it. Each thumb has its own value, but both are still constrained by the slider's min and max values. The matSliderStartThumb cannot have a value greater than that of the matSliderEndThumb and the matSliderEndThumb cannot have a value less than that of the matSliderStartThumb, though they both may have the same value.
+   </div>   
+
+   <div class="width-600 card p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Range Slider</p>
+   <mat-slider min="200" max="500">
+      <input value="300" matSliderStartThumb>
+      <input value="400" matSliderEndThumb>
+    </mat-slider>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Thumb label</h3>
+      By default, the exact selected value of a slider is not visible to the user. However, this value can be added to the thumb by adding the discrete attribute.
+   </div>
+
+   <div class="card width-600">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Formatting the thumb label</h3>
+      By default, the value in the slider's thumb label will be the same as the model value, however this may end up being too large to fit into the label. If you want to control the value that is being displayed, you can do so using the displayWith input.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Slider with custom thumb label formatting.</p>
+   <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+      <input matSliderThumb>
+    </mat-slider>
+    
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Tick marks</h3>
+      By default, sliders do not show tick marks along the thumb track. This can be enabled using the showTickMarks attribute.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Keyboard interaction</h3>
+      The slider has the following keyboard bindings: 
+   </div>
+
+   <div class="width-600">
+      <table class="table">
+         <thead>
+            <tr>
+               <th>Key</th>
+               <th>Action</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td scope="row">Rigth arrow</td>
+               <td>Increment the slider value by one step (decrements in RTL).</td>
+            </tr>
+            <tr>
+               <td scope="row">Up narrow</td>
+               <td>Increment the slider value by one step.</td>
+            </tr>
+            <tr>
+               <td scope="row">Left narrow</td>
+               <td>Decrement the slider value by one step (increments in RTL).</td>
+            </tr>
+            <tr>
+               <td scope="row">Down narrow</td>
+               <td>Decrement the slider value by one step.</td>
+            </tr>
+            <tr>
+               <td scope="row">Page up</td>
+               <td>Increment the slider value by 10% (of the max value).</td>
+            </tr>
+            <tr>
+               <td scope="row">Page down</td>
+               <td>Decrement the slider value by 10% (of the max value).</td>
+            </tr>
+            <tr>
+               <td scope="row">End</td>
+               <td>Set the value to the maximum possible.</td>
+            </tr>
+            <tr>
+               <td scope="row">Home</td>
+               <td>Set the value to the minimum possible.</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accessibility</h3>
+      MatSlider uses an internal &lt;input type="range"> to provide an accessible experience. The input receives focus and it can be labelled using aria-label or aria-labelledby.
+   </div>
+</div>

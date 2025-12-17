@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <p class="text-center fs-2 text-danger my-4 fw-bolder">Getting started standalone</p>
+    <p>
+        Standalone components provide a simplified way to build Angular applications. Standalone components, directives,
+        and pipes aim to streamline the authoring experience by reducing the need for NgModules. <br> Existing
+        applications
+        can optionally and incrementally adopt the new standalone style without any breaking changes.
+    </p>
+    <h2 class="title fw-bold">Creating standalone components</h2>
+    <p class="bg-primary-subtle py-1 ps-2">The standalone flag and component imports</p>
+    <p>
+        Components, directives, and pipes can now be marked as <strong>standalone: true</strong>. Angular classes marked
+        as standalone do not need to be declared in an NgModule (the Angular compiler will report an error if you try).
+        <br><br>
+
+        Standalone components specify their dependencies directly instead of getting them through
+        <strong>NgModules</strong>. For example, if <strong>PhotoGalleryComponent</strong> is a standalone component, it
+        <br>
+        can directly import another standalone component ImageGridComponent:
+    </p>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code1}}</pre>
+    </mat-card>
+
+    <div class="mt-4"><strong>imports</strong> can also be used to reference standalone directives and pipes. In this
+        way, standalone components can be <br>
+        written without the need to create an NgModule to manage template dependencies.</div>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Using existing NgModules in a standalone component</p>
+
+    <div>When writing a standalone component, you may want to use other components, directives, or pipes in the
+        component's template. Some of those dependencies might not be marked as standalone, but instead declared and
+        <br>
+        exported by an existing <strong>NgModule</strong>. In this case, you can import the <strong>NgModule</strong>
+        directly into the standalone
+        component:
+    </div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code2}}</pre>
+    </mat-card>
+
+    <div class="mt-4">You can use standalone components with existing <strong>NgModule</strong>-based libraries or
+        dependencies in your template. Standalone components can take full advantage of the existing ecosystem of
+        Angular libraries.</div>
+
+    <h2 class="title fw-bold">Using standalone components in NgModule-based applications</h2>
+    <div>Standalone components can also be imported into existing NgModules-based contexts. This allows existing
+        applications (which are using NgModules today) to incrementally adopt the new, standalone style of component.
+        <br><br>
+
+        You can import a standalone component (or directive, or pipe) just like you would an <strong>NgModule</strong> -
+        using
+        <strong>NgModule.imports</strong> :
+    </div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code3}}</pre>
+    </mat-card>
+
+    <h2 class="title fw-bold">Bootstrapping an application using a standalone component</h2>
+    <div class="mt-2">An Angular application can be bootstrapped without any <strong>NgModule</strong> by using a
+        standalone component as the application's root component. This is done using the bootstrapApplication API:</div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code4}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Configuring dependency injection</p>
+    <div>When bootstrapping an application, often you want to configure Angular’s dependency injection and provide
+        configuration values or services for use throughout the application. You can pass these as providers to <br>
+        <strong>bootstrapApplication</strong> :
+    </div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code5}}</pre>
+    </mat-card>
+
+    <div class="mt-4">The standalone bootstrap operation is based on explicitly configuring a list of <strong
+            class="text-decoration-underline">Providers</strong> for
+        dependency injection. In Angular,<strong>provide</strong>-prefixed functions can be used to configure different
+        systems without
+        needing to <br> import NgModules. For example, <strong class="text-decoration-underline">provideRouter</strong>
+        is used in place of <strong>RouterModule.forRoot</strong> to configure
+        the router:</div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code6}}</pre>
+    </mat-card>
+
+    <div class="mt-4">Many third party libraries have also been updated to support this
+        <strong>provide</strong>-function configuration pattern. If a
+        library only offers an NgModule API for its DI configuration, you can use the <strong
+            class="text-decoration-underline">importProvidersFrom</strong> utility <br>
+        to still use it with <strong class="text-decoration-underline">bootstrapApplication</strong> and other
+        standalone contexts:
+    </div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code7}}</pre>
+    </mat-card>
+
+    <h2 class="title fw-bold">Routing and lazy-loading</h2>
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Lazy loading a standalone component</p>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code8}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Lazy loading a standalone component</p>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code9}}</pre>
+    </mat-card>
+</div>

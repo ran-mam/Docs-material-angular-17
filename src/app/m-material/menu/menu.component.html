@@ -1,0 +1,181 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      &lt;mat-menu> is a floating panel containing list of options.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic menu</p>
+   <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+   <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+   </mat-menu>
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">    
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text">
+      By itself, the &lt;mat-menu> element does not render anything. The menu is attached to and opened via
+      application of the matMenuTriggerFor directive:
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Toggling the menu programmatically</h3>
+      The menu exposes an API to open/close programmatically. Please note that in this case, an
+      matMenuTriggerFor directive is still necessary to attach the menu to a trigger element in the DOM.
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Icons</h3>
+      Menus support displaying mat-icon elements before the menu item text.
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold"> Customizing menu position</h3>
+      By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The
+      position can be changed using the xPosition (before | after) and yPosition (above | below) attributes.
+      The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+   </div>
+
+   <div class="card">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Nested menu</h3>
+      Material supports the ability for an mat-menu-item to open a sub-menu. To do so, you have to define your
+      root menu and sub-menus, in addition to setting the [matMenuTriggerFor] on the mat-menu-item that should
+      trigger the sub-menu:
+   </div>
+
+   <div class="card">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Lazy rendering</h3>
+      By default, the menu content will be initialized even when the panel is closed. To defer initialization
+      until the menu is open, the content can be provided as an ng-template with the matMenuContent attribute:
+   </div>
+
+   <div class="card">
+      <pre>{{c6}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Passing in data to a menu</h3>
+      When using lazy rendering, additional context data can be passed to the menu panel via the
+      matMenuTriggerData input. This allows for a single menu instance to be rendered with a different set of
+      data, depending on the trigger that opened it:
+   </div>
+
+   <div class="card d-flex justify-content-center">
+      <pre>{{c7}}</pre>
+   </div>
+
+   <h3 class="fw-bold mt-4">Keyboard interaction</h3>
+
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Keyboard shortcut</th>
+            <th>Action</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td scope="row">Down Arrow</td>
+            <td>Focus the next menu item.</td>
+         </tr>
+         <tr>
+            <td scope="row">Up Arrow</td>
+            <td>Focus the previous menu item.</td>
+         </tr>
+         <tr>
+            <td scope="row">Left Arrow</td>
+            <td>Close the current menu if it is a sub-menu.</td>
+         </tr>
+         <tr>
+            <td scope="row">Right Arrow</td>
+            <td>Opens the current menu item's sub-menu.</td>
+         </tr>
+         <tr>
+            <td scope="row">Enter</td>
+            <td>Activate the focused menu item.</td>
+         </tr>
+         <tr>
+            <td scope="row">Escape</td>
+            <td>Close all open menus.</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Accessibility</h3>
+      Angular Material's menu component consists of two connected parts: the trigger and the pop-up menu.
+      <br><br>
+
+      The menu trigger is a standard button element augmented with aria-haspopup, aria-expanded, and
+      aria-controls to create the relationship to the pop-up panel. <br><br>
+
+      The pop-up menu implements the role="menu" pattern, handling keyboard interaction and focus management.
+      Upon opening, the trigger will focus the first focusable menu item. Upon close, the menu will return
+      focus to its trigger. Avoid creating a menu in which all items are disabled, instead hiding or disabling
+      the menu trigger. <br><br>
+
+      Angular Material does not support the menuitemcheckbox or menuitemradio roles. <br><br>
+
+      Always provide an accessible label via aria-label or aria-labelledby for any menu triggers or menu items
+      without descriptive text content. <br><br>
+
+      MatMenu should not contain any interactive controls aside from MatMenuItem.
+   </div>
+
+</div>

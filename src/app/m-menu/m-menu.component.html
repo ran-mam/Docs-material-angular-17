@@ -1,0 +1,49 @@
+<!-- menu -->
+<mat-toolbar color="primary" class="bg-dark" style="z-index:1;">
+   <img src="../../assets/images/Angular_full_color_logo.svg.png" alt="" width="50px">
+   <span class="spacer"></span>
+   <button mat-button routerLink="home">Home</button>
+   <button mat-button [color]="angular.opened ? 'warn' : ''" (click)="angular.toggle()">Angular</button>
+   <button mat-button [color]="material.opened ? 'warn' : ''" (click)="material.toggle()">Material</button>
+</mat-toolbar>
+<!-- menu -->
+
+<!-- sideNav -->
+<mat-drawer-container autosize>
+
+   <!-- material -->
+   <mat-drawer class="mat-drawer" position="end" #material [opened]="!angular.opened && 'false'" mode="side" class="bg-dark">
+      <mat-nav-list>
+         <div class="text-danger fs-3 py-3 mb-3 text-center border-bottom border-top border-secondary">Material</div>
+         <div class="link-mat" *ngFor="let menu of menuItemsMateral">
+            <a class="link-mat-list" [routerLinkActive]="'active-link'" [routerLink]="menu.routerlink">
+               {{menu.link}}
+            </a>
+         </div>
+      </mat-nav-list>
+   </mat-drawer>
+   <!-- material -->
+
+   <!-- angular -->
+   <mat-drawer #angular position="end" [opened]="!material.opened && 'false'" mode="side" class="bg-dark">
+      <mat-nav-list>
+         <div class="text-danger fs-3 py-3 mb-3 text-center border-bottom border-top border-secondary">Angular</div>
+         <div class="link-mat" *ngFor="let menu of menuItemsAngular">
+            <a class="link-mat-list-angular" [routerLinkActive]="'active-link'" [routerLink]="menu.routerlink">
+               {{menu.link}}
+            </a>
+         </div>
+      </mat-nav-list>
+   </mat-drawer>
+   <!-- angular -->
+
+   <!-- router-outlet -->
+   <mat-drawer-content>
+      <div style="height: 100%;margin-left:20px">
+         <router-outlet></router-outlet>
+      </div>
+   </mat-drawer-content>
+   <!-- router-outlet -->
+
+</mat-drawer-container>
+<!-- sideNav -->

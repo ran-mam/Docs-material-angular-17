@@ -1,0 +1,534 @@
+<div class="mt-4 align-items-end mb-4">
+    <div class="width-600 lh-text">
+        The mat-table provides a Material Design styled data-table that can be used to display rows of data. <br><br>
+
+        This table builds on the foundation of the CDK data-table and uses a similar interface for its data input and
+        template, except that its element and attribute selectors will be prefixed with mat- instead of cdk-. For more
+        information on the interface and a detailed look at how the table is implemented, see the guide covering the CDK
+        data-table. <br><br>
+
+        <h3 class="fw-bold">Getting Started</h3>
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper overview</p>
+    <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{ element . position }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{ element . name }} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{ element . weight }} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{ element . symbol }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+    </table>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section1HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code1 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section2HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code2 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h4 class="fw-bold">1. Write your mat-table and provide data</h4>
+        Begin by adding the &lt;table mat-table> component to your template and passing in data. <br><br>
+
+        The simplest way to provide data to the table is by passing a data array to the table's dataSource input. The
+        table will take the array and render a row for each object in the data array.
+    </div>
+
+
+    <div class="card width-600 p-2">
+        <pre>{{ c1 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        Since the table optimizes for performance, it will not automatically check for changes to the data array.
+        Instead,
+        when objects are added, removed, or moved on the data array, you can trigger an update to the table's rendered
+        rows by calling its renderRows() method. <br><br>
+        While an array is the simplest way to bind data into the data source, it is also the most limited. For more
+        complex applications, using a DataSource instance is recommended. See the section "Advanced data sources" below
+        for more information. <br><br>
+        <h4 class="fw-bold"> 2. Define the column templates</h4> <br><br>
+        Next, write your table's column templates. <br>
+
+        Each column definition should be given a unique name and contain the content for its header and row cells. <br>
+
+        Here's a simple column definition with the name 'score'. The header cell contains the text "Score" and each row
+        cell will render the score property of each row's data.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c2 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        Note that the cell templates are not restricted to only showing simple string values, but are flexible and allow
+        you to provide any template. <br><br>
+
+        If your column is only responsible for rendering a single string value for the header and cells, you can instead
+        define your column using the mat-text-column. The following column definition is equivalent to the one above.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c3 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        Check out the API docs and examples of the mat-text-column to see how you can customize the header text, text
+        alignment, and cell data accessor. Note that this is not compatible with the flex-layout table. Also, a data
+        accessor should be provided if your data may have its properties minified since the string name will no longer
+        match after minification. <br><br>
+        <h4 class="fw-bold mb-3"> 3. Define the row templates</h4>
+        Finally, once you have defined your columns, you need to tell the table which columns will be rendered in the
+        header and data rows. <br><br>
+
+        To start, create a variable in your component that contains the list of the columns you want to render.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c4 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">Then add mat-header-row and mat-row to the content of your mat-table and provide your
+        column list as inputs.</div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c5 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h3 class="fw-bold">Styling Columns</h3>
+        Each table cell has an automatically generated class based on which column it appears in. The format for this
+        generated class is mat-column-NAME. For example, cells in a column named "symbol" can be targeted with the
+        selector .mat-column-symbol.
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Styling columns using their auto-generated column names
+    </p>
+    <table mat-table [dataSource]="dataSource3" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="demo-position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{ element . position }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="demo-name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{ element . name }} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="demo-weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{ element . weight }} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="demo-symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{ element . symbol }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+    </table>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header " role="tab" id="section3HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+               {{ code3 }}
+            </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section4HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+               {{ code4 }}
+            </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h3 class="fw-bold">Row Templates</h3>
+        Event handlers and property binding on the row templates will be applied to each row rendered by the table. For
+        example, adding a (click) handler to the row template will cause each individual row to call the handler when
+        clicked.
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Binding event handlers and properties to the table rows.
+    </p>
+    <table mat-table [dataSource]="dataSource5" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{ element . position }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element . name }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef>Weight</th>
+            <td mat-cell *matCellDef="let element">{{ element . weight }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef>Symbol</th>
+            <td mat-cell *matCellDef="let element">{{ element . symbol }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns5"></tr>
+        <tr mat-row (click)="clickedRows5.add(row)" [class.demo-row-is-clicked]="clickedRows5.has(row)"
+            *matRowDef="let row; columns: displayedColumns5;"></tr>
+    </table>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section3HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code5 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section8HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code6 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Table with pagination</p>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource7">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{ element . position }} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{ element . name }} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{ element . weight }} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                <td mat-cell *matCellDef="let element"> {{ element . symbol }} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns7"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns7;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section7HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code7 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section8HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code8 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h3 class="fw-bold">Sorting</h3>
+        To add sorting behavior to the table, add the matSort directive to the table and add mat-sort-header to each
+        column header cell that should trigger sorting. Note that you have to import MatSortModule in order to
+        initialize
+        the matSort directive (see API docs).
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c6 }}</pre>
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Table with sorting</p>
+    <table mat-table [dataSource]="dataSource9" matSort (matSortChange)="announceSortChange($event)"
+        class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+                No.
+            </th>
+            <td mat-cell *matCellDef="let element"> {{ element . position }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                Name
+            </th>
+            <td mat-cell *matCellDef="let element"> {{ element . name }} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                Weight
+            </th>
+            <td mat-cell *matCellDef="let element"> {{ element . weight }} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                Symbol
+            </th>
+            <td mat-cell *matCellDef="let element"> {{ element . symbol }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns9"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns9;"></tr>
+    </table>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section7HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+               {{ code9 }}
+            </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section10HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+               {{ code10 }}
+            </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h3 class="fw-bold">Selection</h3>
+        Right now there is no formal support for adding a selection UI to the table, but Angular Material does offer the
+        right components and pieces to set this up. The following steps are one solution but it is not the only way to
+        incorporate row selection in your table. <br><br>
+
+        <h4 class="fw-bold">1. Add a selection model</h4>
+        Get started by setting up a SelectionModel from &#64;/cdk/collections that will maintain the selection state.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c7 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h4 class="fw-bold">Define a selection column</h4>
+        Add a column definition for displaying the row checkboxes, including a main toggle checkbox for the header. The
+        column name should be added to the list of displayed columns provided to the header and data row.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c8 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h4 class="fw-bold">3. Add event handling logic</h4>
+        Implement the behavior in your component's logic to handle the header's main toggle and checking if all rows are
+        selected.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c9 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h4 class="fw-bold">4. Include overflow styling</h4>
+        Finally, adjust the styling for the select column so that its overflow is not hidden. This allows the ripple
+        effect to extend beyond the cell.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c10 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h3 class="fw-bold">Footer row</h3>
+        A footer row can be added to the table by adding a footer row definition to the table and adding footer cell
+        templates to column definitions. The footer row will be rendered after the rendered data rows.
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c11 }}</pre>
+    </div>
+
+    <div class="width-600 lh-text">
+        <h3 class="fw-bold">Table width display flex</h3>
+        The MatTable does not require that you use a native HTML table. Instead, you can use an alternative approach
+        that uses display: flex for the table's styles. <br><br>
+
+        This alternative approach replaces the native table element tags with the MatTable directive selectors. For
+        example, &lt;table mat-table> becomes &lt;mat-table>; &lt;tr mat-row> becomes &lt;mat-row>. The following shows
+        a previous example using this alternative template:
+    </div>
+
+    <div class="card width-600 p-2">
+        <pre>{{ c12 }}</pre>
+    </div>
+
+</div>

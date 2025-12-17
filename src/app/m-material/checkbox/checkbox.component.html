@@ -1,0 +1,106 @@
+<div class="mt-4 align-items-end">
+   <div class="width-600 lh-text mt-4">
+      &lt;mat-checkbox> provides the same functionality as a native &lt;input type="checkbox"> enhanced with Material Design
+            styling and animations.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basi button toggle</p>
+
+   <section class="example-section">
+      <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+      <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox>
+   </section>
+
+   <section class="example-section">
+      <span class="example-list-section">
+         <mat-checkbox class="example-margin" [checked]="allComplete" [color]="task.color"
+            [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+            {{task.name}}
+         </mat-checkbox>
+      </span>
+      <span class="example-list-section">
+         <ul>
+            @for (subtask of task.subtasks; track subtask) {
+            <li>
+               <mat-checkbox [(ngModel)]="subtask.completed" [color]="subtask.color"
+                  (ngModelChange)="updateAllComplete()">
+                  {{subtask.name}}
+               </mat-checkbox>
+            </li>
+            }
+         </ul>
+      </span>
+   </section>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Checkbox label</h3>
+      The checkbox label is provided as the content to the < mat-checkbox> element. The label can be positioned before
+         or after the checkbox by setting the labelPosition property to 'before' or 'after'. <br><br>
+
+         If you don't want the label to appear next to the checkbox, you can use aria-label or aria-labelledby to
+         specify an appropriate label.
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Use with &#64;angular/forms</h3>
+      &lt;mat-checkbox> is compatible with &#64;angular/forms and supports both FormsModule and ReactiveFormsModule.
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Indeterminate state</h3>
+      &lt;mat-checkbox> supports an indeterminate state, similar to the native &lt;input type="checkbox">. While the
+            indeterminate property of the checkbox is true, it will render as indeterminate regardless of the checked
+            value. Any interaction with the checkbox by a user (i.e., clicking) will remove the indeterminate state.
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Click action config</h3>
+      When user clicks on the mat-checkbox, the default behavior is toggle checked value and set indeterminate to false.
+      This behavior can be customized by providing a new value of MAT_CHECKBOX_DEFAULT_OPTIONS to the checkbox.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>
+            {{code3}}
+         </pre>
+   </div>
+
+</div>

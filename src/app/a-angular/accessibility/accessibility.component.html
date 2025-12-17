@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <p class="text-center fs-2 text-danger my-4 fw-bolder">Accessibility</p>c
+    <p>The web is used by a wide variety of people, including those who have visual or motor impairments. A variety of
+        assistive technologies are available that make it much easier for these groups to interact with web-based
+        software applications. Also, designing an application to be more accessible generally improves the user
+        experience for all users.
+        <br><br>
+        For an in-depth introduction to issues and techniques for designing accessible applications, see the
+        Accessibility section of the Google's Web Fundamentals.
+        <br><br>
+        This page discusses best practices for designing Angular applications that work well for all users, including
+        those who rely on assistive technologies.
+    </p>
+
+    <h2 class="fw-bold title">Accessibility attributes</h2>
+    <p class="text-secondary">Use attr. when binding to an ARIA attribute</p>
+    <mat-card class="shadow code">
+        <pre>{{code1}}</pre>
+    </mat-card>
+    <p class="text-secondary mt-4">Static ARIA attributes require no extra syntax</p>
+    <mat-card class="shadow code">
+        <pre>{{code2}}</pre>
+    </mat-card>
+
+    <h2 class="fw-bold title">Building a custom progress bar</h2>
+
+    <div class="bg-dark text-white py-4 px-2">
+        <label for="progress-value">
+            Enter an example progress value
+            <input id="progress-value" type="number" min="0" max="100" [value]="progress" (input)="setProgress($event)">
+        </label>
+
+        <div class="progress mt-2">
+            <div class="progress-bar" [style.width.%]="progress"></div>
+        </div>
+    </div>
+
+    <p>The component defines an accessibility-enabled element with both the standard HTML attribute role, and ARIA
+        attributes. The ARIA attribute aria-valuenow is bound to the user's input.</p>
+    <mat-card class="shadow code">
+        <pre>{{code3}}</pre>
+    </mat-card>
+    <p class="mt-4">In the template, the aria-label attribute ensures that the control is accessible to screen readers.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code4}}</pre>
+    </mat-card>
+
+    <h2 class="fw-bold title">Routing</h2>
+    <p class="bg-primary-subtle py-1 ps-2">Focus management after navigation</p>
+    <p>
+        Tracking and controlling focus in a UI is an important consideration in designing for accessibility. When using
+        Angular routing, you should decide where page focus goes upon navigation.
+
+        To avoid relying solely on visual cues, you need to make sure your routing code updates focus after page
+        navigation. Use the <strong class="text-decoration-underline">NavigationEnd</strong> event from the <strong
+            class="text-decoration-underline">Router</strong> service to know when to update focus.
+        <br><br>
+        The following example shows how to find and focus the main content header in the DOM after navigation.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code5}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Active links identification</p>
+    <p>
+        CSS classes applied to active <strong class="text-decoration-underline">RouterLink</strong> elements, such as
+        <strong class="text-decoration-underline">RouterLinkActive</strong>, provide a visual cue to identify
+        the active link. Unfortunately, a visual cue doesn't help blind or visually impaired users. Applying the
+        <strong>aria-current</strong> attribute to the element can help identify the active link. For more information,
+        see Mozilla
+        Developer Network (MDN) aria-current).
+        <br><br>
+        The <strong class="text-decoration-underline">RouterLinkActive</strong> directive provides the
+        <strong>ariaCurrentWhenActive</strong> input which sets the <strong>aria-current</strong> to a
+        specified value when the link becomes active.
+        <br><br>
+        The following example shows how to apply the <strong>active-page</strong> class to active links as well as
+        setting their
+        <strong>aria-current</strong> attribute to <strong>"page"</strong> when they are active:
+    </p>
+
+    <mat-card class="shadow code">
+        <pre>{{code6}}</pre>
+    </mat-card>
+
+</div>

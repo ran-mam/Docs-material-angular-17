@@ -1,0 +1,93 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      &lt;mat-radio-button> provides the same functionality as a native &lt;input type="radio"> enhanced with Material
+      Design styling and animations.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Radios</p>
+      <mat-radio-group aria-label="Select an option">
+         <mat-radio-button value="1">Option 1</mat-radio-button>
+         <mat-radio-button value="2">Option 2</mat-radio-button>
+      </mat-radio-group>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text">
+      All radio-buttons with the same name comprise a set from which only one may be selected at a time.
+      <h3 class="fw-bold mt-4 mb-2">Radio-button label</h3>
+      The radio-button label is provided as the content to the &lt;mat-radio-button> element. The label can be
+      positioned before or after the radio-button by setting the labelPosition property to 'before' or 'after'.
+      If you don't want the label to appear next to the radio-button, you can use aria-label or aria-labelledby to
+      specify an appropriate label.
+
+      <h3 class="fw-bold mt-4 mb-2">Radio groups</h3>
+      Radio-buttons should typically be placed inside of an &lt;mat-radio-group> unless the DOM structure would make
+      that impossible (e.g., radio-buttons inside of table cells). The radio-group has a value property that reflects
+      the currently selected radio-button inside of the group.
+      Individual radio-buttons inside of a radio-group will inherit the name of the group.
+
+      <h3 class="fw-bold mt-4 mb-2">Use with &#64;angular/forms</h3>
+      &lt;mat-radio-group> is compatible with &#64;angular/forms and supports both FormsModule and ReactiveFormsModule.
+
+      <h3 class="fw-bold mt-4 mb-2">Default Color Configuration</h3>
+      The default color for radio buttons can be configured globally using the MAT_RADIO_DEFAULT_OPTIONS provider
+   </div>
+
+
+   <div class="card p-2 width-600">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold mt-4 mb-2">Accessibility</h3>  
+MatRadioButton uses an internal &lt;input type="radio"> to provide an accessible experience. This internal radio button receives focus and is automatically labelled by the text content of the &lt;mat-radio-button> element. Avoid adding other interactive controls into the content of &lt;mat-radio-button>, as this degrades the experience for users of assistive technology. <br><br>
+Always provide an accessible label via aria-label or aria-labelledby for radio buttons without descriptive text content. For dynamic labels and descriptions, MatRadioButton provides input properties for binding aria-label, aria-labelledby, and aria-describedby. This means that you should not use the attr. prefix when binding these properties, as demonstrated below.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>
+         {{c2}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      Prefer placing all radio buttons inside of a &lt;mat-radio-group> rather than creating standalone radio buttons because groups are easier to use exclusively with a keyboard.
+         You should provide an accessible label for all &lt;mat-radio-group> elements via aria-label or aria-labelledby.
+   </div>
+</div>

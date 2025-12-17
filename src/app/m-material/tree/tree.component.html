@@ -1,0 +1,156 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      The mat-tree provides a Material Design styled tree that can be used to display hierarchy data. <br><br>
+
+      This tree builds on the foundation of the CDK tree and uses a similar interface for its data source input and
+      template, except that its element and attribute selectors will be prefixed with mat- instead of cdk-. <br><br>
+
+      There are two types of trees: Flat tree and nested tree. The DOM structures are different for these two types of
+      trees. Flat trees generally offer better performance, while nested trees provide flexibility. <br><br>
+
+      <h3 class="fw-bold">Flat tree</h3>
+      In a flat tree, the hierarchy is flattened; nodes are not rendered inside of each other, but instead are rendered
+      as siblings in sequence. An instance of TreeFlattener is used to generate the flat list of items from hierarchical
+      data. The "level" of each tree node is read through the getLevel method of the TreeControl; this level can be used
+      to style the node such that it is indented to the appropriate level.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Tree with flat nodes</p>
+   <mat-tree [dataSource]="dataSource1" [treeControl]="treeControl1">
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+         <!-- use a disabled button to provide padding for tree leaf -->
+         <button mat-icon-button disabled></button>
+         {{node.name}}
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild1" matTreeNodePadding>
+         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+               {{treeControl1.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+         </button>
+         {{node.name}}
+      </mat-tree-node>
+   </mat-tree>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Nested tree</h3>
+      In Nested tree, children nodes are placed inside their parent node in DOM. The parent node has an outlet to keep
+      all the children nodes.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Tree with nested nodes</p>
+   <mat-tree [dataSource]="dataSource3" [treeControl]="treeControl3" class="example-tree">
+      <!-- This is the tree node template for leaf nodes -->
+      <!-- There is inline padding applied to this node using styles.
+        This padding value depends on the mat-icon-button width. -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+          {{node.name}}
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild3">
+          <div class="mat-tree-node">
+            <button mat-icon-button matTreeNodeToggle
+                    [attr.aria-label]="'Toggle ' + node.name">
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl3.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            {{node.name}}
+          </div>
+          <!-- There is inline padding applied to this div using styles.
+              This padding value depends on the mat-icon-button width.  -->
+          <div [class.example-tree-invisible]="!treeControl3.isExpanded(node)"
+              role="group">
+            <ng-container matTreeNodeOutlet></ng-container>
+        </div>
+      </mat-nested-tree-node>
+    </mat-tree>
+    
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code3}}
+            </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code4}}
+            </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+    
+
+
+</div>

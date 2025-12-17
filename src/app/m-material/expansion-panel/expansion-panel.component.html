@@ -1,0 +1,140 @@
+<div class="mt-4 align-items-end">
+   <div class="width-600 lh-text">
+      &lt;mat-expansion-panel> provides an expandable details-summary view.
+   </div>
+
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic expansion panel</p>
+   <mat-accordion>
+      <mat-expansion-panel hideToggle>
+         <mat-expansion-panel-header>
+            <mat-panel-title>
+               This is the expansion title
+            </mat-panel-title>
+            <mat-panel-description>
+               This is a summary of the content
+            </mat-panel-description>
+         </mat-expansion-panel-header>
+         <p>This is the primary content of the panel.</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+         <mat-expansion-panel-header>
+            <mat-panel-title>
+               Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+               Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+         </mat-expansion-panel-header>
+         <p>I'm visible because I am open</p>
+      </mat-expansion-panel>
+   </mat-accordion>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <h2 class="fw-bold">Expansion-panel content</h2>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Header</h3>
+      The < mat-expansion-panel-header> shows a summary of the panel content and acts as the control for expanding and
+         collapsing. This header may optionally contain an < mat-panel-title> and an < mat-panel-description>, which
+               format the content of the header to align with Material Design specifications.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="card width-600 p-2">
+      By default, the expansion-panel header includes a toggle icon at the end of the header to indicate the expansion
+      state. This icon can be hidden via the hideToggle property.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Action bar</h3>
+      Actions may optionally be included at the bottom of the panel, visible only when the expansion is in its expanded
+      state.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold"> Disabling a panel</h3>
+      Expansion panels can be disabled using the disabled attribute. A disabled expansion panel can't be toggled by the
+      user, but can still be manipulated programmatically.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accordion</h3>
+      Multiple expansion-panels can be combined into an accordion. The multi="true" input allows the expansions state to
+      be set independently of each other. When multi="false" (default) just one panel can be expanded at a given time:
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Lazy rendering</h3>
+      By default, the expansion panel content will be initialized even when the panel is closed. To instead defer
+      initialization until the panel is open, the content should be provided as an ng-template:
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c6}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accessibility</h3>
+      MatExpansionPanel imitates the experience of the native &lt;details> and < summary> elements. The expansion panel
+            header applies role="button" and the aria-controls attribute with the content element's ID. <br><br>
+            Because expansion panel headers are buttons, avoid adding interactive controls as children of <
+               mat-expansion-panel-header>, including buttons and anchors.
+   </div>
+
+</div>

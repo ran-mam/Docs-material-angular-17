@@ -1,0 +1,195 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      MatSnackBar is a service for displaying snack-bar notifications.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic snack-bar</p>
+   <mat-form-field>
+      <mat-label>Message</mat-label>
+      <input matInput value="Disco party!" #message>
+   </mat-form-field> <br>
+
+   <mat-form-field>
+      <mat-label>Action</mat-label>
+      <input matInput value="Dance" #action>
+   </mat-form-field> <br>
+
+   <button mat-stroked-button (click)="openSnackBar1(message.value, action.value)">Show snack-bar</button>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Opening a snakbar</h3>
+      A snackbar can contain either a string message or a given component.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      In either case, a MatSnackBarRef is returned. This can be used to dismiss the snackbar or to receive notification
+      of when the snackbar is dismissed. For simple messages with an action, the MatSnackBarRef exposes an observable
+      for when the action is triggered. If you want to close a custom snackbar that was opened via openFromComponent,
+      from within the component itself, you can inject the MatSnackBarRef.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Dismissal</h3>
+      A snackbar can be dismissed manually by calling the dismiss method on the MatSnackBarRef returned from the call to
+      open. <br><br>
+
+      Only one snackbar can ever be opened at one time. If a new snackbar is opened while a previous message is still
+      showing, the older message will be automatically dismissed. <br><br>
+
+      A snackbar can also be given a duration via the optional configuration object:
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Sharing data with a custom snackbar</h3>
+      You can share data with the custom snackbar, that you opened via the openFromComponent method, by passing it
+      through the data property.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">To access the data in your component, you have to use the MAT_SNACK_BAR_DATA injection
+      token:</div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Annotating custom snackbar content</h3>
+      When opening a custom snackbar via the snackBar.openFromComponent method, you can use the following directives to
+      annotate the content and ensure that it is styled consistently compared to snackbars opened via snackBar.open.
+      <br><br>
+      <ul class="note">
+         <li>matSnackBarLabel - Marks the text of the snackbar shown to users</li>
+         <li>matSnackBarActions - Marks the container element containing any action buttons</li>
+         <li>matSnackBarAction - Marks an individual action button</li>
+      </ul>
+
+      If no annotations are used, all the content will be treated as text content.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Snack-bar with an annotated custom component</p>
+   <mat-form-field>
+      <mat-label>Snack bar duration (seconds)</mat-label>
+      <input type="number" [(ngModel)]="durationInSeconds" matInput>
+   </mat-form-field> <br>
+
+   <button mat-stroked-button (click)="openSnackBar2()" aria-label="Show an example snack-bar">
+      Pizza party
+   </button>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Setting the global configuration defaults</h3>
+      If you want to override the default snack bar options, you can do so using the MAT_SNACK_BAR_DEFAULT_OPTIONS
+      injection token.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c6}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accessibiility</h3>
+      MatSnackBar announces messages via an aria-live region. While announcements use the polite setting by default, you
+      can customize this by setting the politeness property of MatSnackBarConfig. <br><br>
+
+      MatSnackBar does not move focus to the snackbar element. Moving focus like this would disrupt users in the middle
+      of a workflow. For any action offered in the snackbar, your application should provide an alternative way to
+      perform the action. Alternative interactions are typically keyboard shortcuts or menu options. You should dismiss
+      the snackbar once the user performs its corresponding action. A snackbar can contain a single action with an
+      additional optional "dismiss" or "cancel" action. <br><br>
+
+      Avoid setting a duration for snackbars that have an action available, as screen reader users may want to navigate
+      to the snackbar element to activate the action. If the user has manually moved their focus within the snackbar,
+      you should return focus somewhere that makes sense in the context of the user's workflow.
+   </div>
+
+</div>

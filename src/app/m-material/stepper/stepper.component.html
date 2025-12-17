@@ -1,0 +1,951 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      Angular Material's stepper provides a wizard-like workflow by dividing content into logical steps. <br><br>
+
+      Material stepper builds on the foundation of the CDK stepper that is responsible for the logic that drives a
+      stepped workflow. Material stepper extends the CDK stepper and has Material Design styling. <br><br>
+
+      <h3 class="fw-bold">Stepper variants</h3>
+      There are two stepper variants: horizontal and vertical. You can switch between the two using the orientation
+      attribute.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper overview</p>
+   <button mat-raised-button (click)="isLinear1 = !isLinear1" id="toggle-linear">
+      {{!isLinear1 ? 'Enable linear mode' : 'Disable linear mode'}}
+   </button>
+   <mat-stepper [linear]="isLinear1" #stepper1>
+      <mat-step [stepControl]="firstFormGroup1">
+         <form [formGroup]="firstFormGroup1">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+               <mat-label>Name</mat-label>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl1" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup1" label="Fill out your address">
+         <form [formGroup]="secondFormGroup1">
+            <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input matInput formControlName="secondCtrl1" placeholder="Ex. 1 Main St, New York, NY" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         <p>You are now done.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper1.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper vertical</p>
+   <button mat-raised-button (click)="isLinear3 = !isLinear3" id="toggle-linear">
+      {{!isLinear3 ? 'Enable linear mode' : 'Disable linear mode'}}
+   </button>
+   <mat-stepper orientation="vertical" [linear]="isLinear3" #stepper3>
+      <mat-step [stepControl]="firstFormGroup3">
+         <form [formGroup]="firstFormGroup3">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+               <mat-label>Name</mat-label>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl3" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup3">
+         <form [formGroup]="secondFormGroup3">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input matInput formControlName="secondCtrl3" placeholder="Ex. 1 Main St, New York, NY" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         <p>You are now done.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper3.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code3}}
+            </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code4}}
+            </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Labels</h3>
+      If a step's label is only text, then the label attribute can be used.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      For more complex labels, add a template with the matStepLabel directive inside the mat-step.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Label position</h3>
+      For a horizontal mat-stepper it's possible to define the position of the label. end is the default value, while
+      bottom will place it under the step icon instead of at its side. This behaviour is controlled by labelPosition
+      property
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Header position</p>
+   <mat-stepper headerPosition="bottom" #stepper5>
+      <mat-step [stepControl]="firstFormGroup5">
+         <form [formGroup]="firstFormGroup5">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl5" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup5" optional>
+         <form [formGroup]="secondFormGroup5">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+               <input matInput placeholder="Address" formControlName="secondCtrl5" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         You are now done.
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper5.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="resizer-width-600 lh-text">
+      <h3 class="fw-bold">Stepper buttons</h3>
+      There are two button directives to support navigation between different steps: matStepperPrevious and
+      matStepperNext.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="resizer-width-600 lh-text">
+      <h3 class="fw-bold">Linear stepper</h3>
+      The linear attribute can be set on mat-stepper to create a linear stepper that requires the user to complete
+      previous steps before proceeding to following steps. For each mat-step, the stepControl attribute can be set to
+      the top level AbstractControl that is used to check the validity of the step. <br><br>
+
+      There are two possible approaches. One is using a single form for stepper, and the other is using a different form
+      for each step. <br><br>
+
+      Alternatively, if you don't want to use the Angular forms, you can pass in the completed property to each of the
+      steps which won't allow the user to continue until it becomes true. Note that if both completed and stepControl
+      are set, the stepControl will take precedence. <br><br>
+
+      <h3 class="fw-bold">Using a single form</h3> Using a single form
+      When using a single form for the stepper, matStepperPrevious and matStepperNext have to be set to type="button" in
+      order to prevent submission of the form before all steps are completed.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <h3 class="fw-bold"> Using a different form for each step</h3>
+
+   <div class="card width-600 p-2">
+      <pre>{{c6}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Types of steps</h3>
+      <h4 class="fw-bold">Optional step</h4>
+      If completion of a step in linear stepper is not required, then the optional attribute can be set on mat-step.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c7}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h4 class="fw-bold">Editable step</h4>
+      By default, steps are editable, which means users can return to previously completed steps and edit their
+      responses. editable="false" can be set on mat-step to change the default.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c8}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h4 class="fw-bold">Completed step</h4>
+      By default, the completed attribute of a step returns true if the step is valid (in case of linear stepper) and
+      the user has interacted with the step. The user, however, can also override this default completed behavior by
+      setting the completed attribute as needed. <br><br>
+      <h4 class="fw-bold">Overriding icons</h4>
+      By default, the step headers will use the create and done icons from the Material design icon set via &lt;mat-icon>
+         elements. If you want to provide a different set of icons, you can do so by placing a matStepperIcon for each
+         of the icons that you want to override. The index, active, and optional values of the individual steps are
+         available through template variables:
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c9}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      Note that you aren't limited to using the mat-icon component when providing custom icons. <br><br>
+      <h3 class="fw-bold">Controlling the stepper animation</h3>
+      You can control the duration of the stepper's animation using the animationDuration input. If you want to disable
+      the animation completely, you can do so by setting the properties to 0ms.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Controlling stepper animation</p>
+   <div class="example-input-wrapper">
+      <label for="duration">Animation duration:</label>
+      <input id="duration" value="2000" type="number" min="0" step="100" #duration7>
+   </div>
+
+   <mat-vertical-stepper [linear]="false" #stepper7 [animationDuration]="duration7.value">
+      <mat-step [stepControl]="firstFormGroup7">
+         <form [formGroup]="firstFormGroup7">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl7" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup7">
+         <form [formGroup]="secondFormGroup7">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+               <input matInput placeholder="Address" formControlName="secondCtrl7" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         You are now done.
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper7.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-vertical-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code7}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code8}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h4 class="fw-bold">Step States</h4>
+      You can set the state of a step to whatever you want. The given state by default maps to an icon. However, it can
+      be overridden the same way as mentioned above.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c10}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      In order to use the custom step states, you must add the displayDefaultIndicatorType option to the global default
+      stepper options which can be specified by providing a value for STEPPER_GLOBAL_OPTIONS in your application's root
+      module.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c11}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper with customized states</p>
+   <mat-stepper #stepper9>
+      <mat-step [stepControl]="firstFormGroup9">
+         <form [formGroup]="firstFormGroup9">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+               <mat-label>Name</mat-label>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl9" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup9">
+         <form [formGroup]="secondFormGroup9">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input matInput formControlName="secondCtrl9" placeholder="Ex. 1 Main St, New York, NY" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         <p>You are now done.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper9.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+   <mat-stepper>
+      <mat-step label="Step 1" state="phone">
+         <p>Put down your phones.</p>
+         <div>
+            <button mat-button matStepperNext>Next</button>
+         </div>
+      </mat-step>
+      <mat-step label="Step 2" state="chat">
+         <p>Socialize with each other.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+         </div>
+      </mat-step>
+      <mat-step label="Step 3">
+         <p>You're welcome.</p>
+      </mat-step>
+
+      <!-- Icon overrides. -->
+      <ng-template matStepperIcon="phone">
+         <mat-icon>call_end</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="chat">
+         <mat-icon>forum</mat-icon>
+      </ng-template>
+   </mat-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code9}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section10HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code10}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold"> Error State</h3>
+      If you want to show an error when the user moved past a step that hasn't been filled out correctly, you can set
+      the error message through the errorMessage input and configure the stepper to show errors via the showError option
+      in the STEPPER_GLOBAL_OPTIONS injection token. Note that since linear steppers prevent a user from advancing past
+      an invalid step to begin with, this setting will not affect steppers marked as linear.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c12}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper that displays errors in the steps</p>
+   <mat-stepper #stepper11>
+      <mat-step [stepControl]="firstFormGroup11" errorMessage="Name is required.">
+         <form [formGroup]="firstFormGroup11">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+               <mat-label>Name</mat-label>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl11" required>
+            </mat-form-field>
+            <div>
+               <p>Go to a different step to see the error state</p>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup11" errorMessage="Address is required.">
+         <form [formGroup]="secondFormGroup11">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl11" required>
+            </mat-form-field>
+            <div>
+               <p>Go to a different step to see the error state</p>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         <p>You are now done.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper11.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section11HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section11ContentId" aria-expanded="true" aria-controls="section11ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section11ContentId" class="collapse in" role="tabpanel" aria-labelledby="section11HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code11}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section12HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section12ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section12HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code12}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Lazy rendering</h3>
+      By default, the stepper will render all of it's content when it's initialized. If you have some content that you
+      want to defer until the particular step is opened, you can put it inside an ng-template with the matStepContent
+      attribute.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper lazy content rendering</p>
+   <mat-stepper orientation="vertical">
+      <mat-step>
+         <ng-template matStepLabel>Step 1</ng-template>
+         <ng-template matStepContent>
+            <p>This content was rendered lazily</p>
+            <button mat-button matStepperNext>Next</button>
+         </ng-template>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Step 2</ng-template>
+         <ng-template matStepContent>
+            <p>This content was also rendered lazily</p>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+         </ng-template>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Step 3</ng-template>
+         <p>This content was rendered eagerly</p>
+         <button mat-button matStepperPrevious>Back</button>
+      </mat-step>
+   </mat-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section13HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section13ContentId" aria-expanded="true" aria-controls="section13ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section13ContentId" class="collapse in" role="tabpanel" aria-labelledby="section13HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code13}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section14HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section14ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section14ContentId" class="collapse in" role="tabpanel" aria-labelledby="section14HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code14}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Responseive stepper</h3>
+      If your app supports a wide variety of screens and a stepper's layout doesn't fit a particular screen size, you
+      can control its orientation dynamically to change the layout based on the viewport.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper Responsive</p>
+   @switch (stepperOrientation15 | async) {
+   @case ('horizontal') {
+   <div>Make your screen smaller to see a vertical stepper</div>
+   }
+   @case ('vertical') {
+   <div>Make your screen larger to see a horizontal stepper</div>
+   }
+   }
+
+   <mat-stepper class="example-stepper" [orientation]="(stepperOrientation15 | async)!">
+      <mat-step [stepControl]="firstFormGroup15" label="Fill out your name">
+         <form [formGroup]="firstFormGroup15">
+            <mat-form-field>
+               <mat-label>Name</mat-label>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl15" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup15" label="Fill out your address">
+         <form [formGroup]="secondFormGroup15">
+            <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input matInput formControlName="secondCtrl15" placeholder="Ex. 1 Main St, New York, NY" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup15" label="Fill out your phone number">
+         <form [formGroup]="thirdFormGroup15">
+            <mat-form-field>
+               <mat-label>Phone number</mat-label>
+               <input matInput formControlName="thirdCtrl15" placeholder="Ex. 12345678" required>
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         <p>You are now done.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section15HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section15ContentId" aria-expanded="true" aria-controls="section15ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section15ContentId" class="collapse in" role="tabpanel" aria-labelledby="section15HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code15}}
+            </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section16HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section16ContentId" aria-expanded="true" aria-controls="section16ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section16ContentId" class="collapse in" role="tabpanel" aria-labelledby="section16HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code16}}
+            </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Keyboard interaction</h3> <br><br>
+      <table class="table">
+         <thead>
+            <tr>
+               <th>Keyboard shortcut</th>
+               <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td scope="row">Left Arrow </td>
+               <td>Focus the previous step header.</td>
+            </tr>
+            <tr>
+               <td scope="row">Right Arrow</td>
+               <td>Focus the next step header.</td>
+            </tr>
+            <tr>
+               <td scope="row">Enter</td>
+               <td>Select the focused step.</td>
+            </tr>
+            <tr>
+               <td scope="row">Space</td>
+               <td> Select the focused step.</td>
+            </tr>
+         </tbody>
+      </table>
+
+      <h3 class="fw-bold mt-4">
+         Localizing labels
+      </h3>
+
+      Labels used by the stepper are provided through MatStepperIntl. Localization of these messages can be done by
+      providing a subclass with translated values in your application root module.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c13}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper that uses the MatStepperIntl service</p>
+   <label for="demo-optional-label-group">Pick the text for the optional label</label>
+   <mat-radio-group id="demo-optional-label-group" class="demo-radio-group" [(ngModel)]="optionalLabelText17"
+      (ngModelChange)="updateOptionalLabel17()">
+      @for (optionalLabelTextChoice of optionalLabelTextChoices17; track optionalLabelTextChoice) {
+      <mat-radio-button class="demo-radio-button"
+         [value]="optionalLabelTextChoice">{{optionalLabelTextChoice}}</mat-radio-button>
+      }
+   </mat-radio-group>
+   <mat-stepper class="demo-stepper" #stepper17>
+      <mat-step [stepControl]="firstFormGroup17">
+         <form [formGroup]="firstFormGroup17">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field class="demo-form-field">
+               <mat-label>Name</mat-label>
+               <input matInput placeholder="Last name, First name" formControlName="firstCtrl17" required />
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup17" label="Fill out your address" optional>
+         <form [formGroup]="secondFormGroup17">
+            <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input matInput formControlName="secondCtrl17" placeholder="Ex. 1 Main St, New York, NY" />
+            </mat-form-field>
+            <div>
+               <button mat-button matStepperPrevious>Back</button>
+               <button mat-button matStepperNext>Next</button>
+            </div>
+         </form>
+      </mat-step>
+      <mat-step>
+         <ng-template matStepLabel>Done</ng-template>
+         <p>You are now done.</p>
+         <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper17.reset()">Reset</button>
+         </div>
+      </mat-step>
+   </mat-stepper>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section17HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section17ContentId" aria-expanded="true" aria-controls="section17ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section17ContentId" class="collapse in" role="tabpanel" aria-labelledby="section17HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code17}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section18HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section18ContentId" aria-expanded="true" aria-controls="section18ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section18ContentId" class="collapse in" role="tabpanel" aria-labelledby="section18HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code18}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accessibility</h3>
+      The stepper is treated as a tabbed view for accessibility purposes, so it is given role="tablist" by default. The
+      header of step that can be clicked to select the step is given role="tab", and the content that can be expanded
+      upon selection is given role="tabpanel". aria-selected attribute of step header is automatically set based on step
+      selection change. <br><br>
+
+      The stepper and each step should be given a meaningful label via aria-label or aria-labelledby. <br><br>
+
+      Prefer vertical steppers when building for small screen sizes, as horizontal steppers typically take up
+      significantly more horizontal space thus introduce horizontal scrolling. Applications with multiple scrolling
+      dimensions make content harder to consume for some users. See the Responsive Stepper section above for an example
+      on building a stepper that adjusts its layout based on viewport size. <br><br>
+
+      <h4 class="fw-bold">Forms</h4>
+      Steppers often contain forms and form controls. If validation errors inside of a stepper's form prevents moving to
+      another step, make sure that your form controls communicate error messages to assistive technology. This helps the
+      user know why they can't advance to another step. You can accomplish this by using &lt;mat-error> with
+      &lt;mat-form-field>, or by using an ARIA live region. <br><br>
+
+      When a step contains a forms validation error, MatStepper will display the error in the step's header if
+      specified. See the Error State section for an example of a stepper with an error message. For non-linear steppers,
+      you should use an ARIA live region to announce error messages when users navigate away from a step with an error
+      message.
+   </div>
+
+
+</div>

@@ -1,0 +1,906 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      &lt;mat-select> is a form control for selecting a value from a set of options, similar to the native &lt;select>
+      element. You can read more about selects in the Material Design spec. It is designed to work inside of a
+      &lt;mat-form-field> element.
+
+      To add options to the select, add &lt;mat-option> elements to the &lt;mat-select>. Each &lt;mat-option> has a
+      value property that can be used to set the value that will be selected if the user chooses this option. The
+      content of the &lt;mat-option> is what will be shown to the user.
+
+      Angular Material also supports use of the native &lt;select> element inside of &lt;mat-form-field>. The native
+      control has several performance, accessibility, and usability advantages. See the documentation for form-field for
+      more information.
+
+      To use a native select inside &lt;mat-form-field>, import MatInputModule and add the matNativeControl attribute to
+      the &lt;select> element.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic select</p>
+   <h4>Basic mat-select</h4>
+   <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+         @for (food of foods1; track food) {
+         <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+         }
+      </mat-select>
+   </mat-form-field>
+
+   <h4>Basic native select</h4>
+   <mat-form-field>
+      <mat-label>Cars</mat-label>
+      <select matNativeControl required>
+         <option value="volvo">Volvo</option>
+         <option value="saab">Saab</option>
+         <option value="mercedes">Mercedes</option>
+         <option value="audi">Audi</option>
+      </select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Getting and setting the select value</h3>
+      The &lt;mat-select> supports 2-way binding to the value property without the need for Angular forms.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with 2-way value binding</p>
+   <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="selected3">
+         <mat-option>None</mat-option>
+         <mat-option value="option1">Option 1</mat-option>
+         <mat-option value="option2">Option 2</mat-option>
+         <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <p>You selected: {{selected3}}</p>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      Both &lt;mat-select> and &lt;select> support all of the form directives from the core FormsModule (NgModel) and
+      ReactiveFormsModule (FormControl, FormGroup, etc.) As with native &lt;select>, &lt;mat-select> also supports a
+      compareWith function. (Additional information about using a custom compareWith function can be found in the
+      Angular forms documentation).
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select in a form</p>
+   <form>
+      <h4>mat-select</h4>
+      <mat-form-field>
+         <mat-label>Favorite food</mat-label>
+         <mat-select [(ngModel)]="selectedValue5" name="food">
+            @for (food of foods5; track food) {
+            <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+            }
+         </mat-select>
+      </mat-form-field>
+      <p> Selected food: {{selectedValue5}} </p>
+      <h4>native html select</h4>
+      <mat-form-field>
+         <mat-label>Favorite car</mat-label>
+         <select matNativeControl [(ngModel)]="selectedCar5" name="car">
+            <option value="" selected></option>
+            @for (car of cars5; track car) {
+            <option [value]="car.value">{{car.viewValue}}</option>
+            }
+         </select>
+      </mat-form-field>
+      <p> Selected car: {{selectedCar5}} </p>
+   </form>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Form field features</h3>
+      There are a number of &lt;mat-form-field> features that can be used with both &lt;select> and &lt;mat-select>.
+      These include error messages, hint text, prefix & suffix, and theming. For additional information about these
+      features, see the form field documentation.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with form field features</p>
+   <h4>mat select</h4>
+   <mat-form-field>
+      <mat-label>Favorite animal</mat-label>
+      <mat-select [formControl]="animalControl7" required>
+         <mat-option>--</mat-option>
+         @for (animal of animals7; track animal) {
+         <mat-option [value]="animal">{{animal.name}}</mat-option>
+         }
+      </mat-select>
+      @if (animalControl7.hasError('required')) {
+      <mat-error>Please choose an animal</mat-error>
+      }
+      <mat-hint>{{animalControl7.value?.sound}}</mat-hint>
+   </mat-form-field>
+
+   <h4>native html select</h4>
+   <mat-form-field>
+      <mat-label>Select your car (required)</mat-label>
+      <select matNativeControl required [formControl]="selectFormControl7">
+         <option label="--select something --"></option>
+         <option value="saab">Saab</option>
+         <option value="mercedes">Mercedes</option>
+         <option value="audi">Audi</option>
+      </select>
+      @if (selectFormControl7.hasError('required')) {
+      <mat-error>This field is required</mat-error>
+      }
+      <mat-hint>You can pick up your favorite car here</mat-hint>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code7}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code8}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Setting a static placeholder</h3>
+      The placeholder is text shown when the &lt;mat-form-field> label is floating but the &lt;mat-select> is empty. It
+      is used to give the user an additional hint about the value they should select. The placeholder can be specified
+      by setting the placeholder attribute on the &lt;mat-select> element. In some cases that &lt;mat-form-field> may
+      use the placeholder as the label (see the form field label documentation). <br><br>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Disabling the select or individual options</h3>
+      It is possible to disable the entire select or individual options in the select by using the disabled property on
+      the &lt;select> or &lt;mat-select> and the &lt;option> or &lt;mat-option> elements respectively. When working with
+      Reactive Forms, the select component can be disabled/enabled via form controls. This can be accomplished by
+      creating a FormControl with the disabled property FormControl(&#123;value: '', disabled: true&#124;) or using
+      FormControl.enable(), FormControl.disable().
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Disabled select</p>
+   <p>
+      <mat-checkbox [formControl]="disableSelect9">Disable select</mat-checkbox>
+   </p>
+
+   <h4>mat-select</h4>
+   <mat-form-field>
+      <mat-label>Choose an option</mat-label>
+      <mat-select [disabled]="disableSelect9.value">
+         <mat-option value="option1">Option 1</mat-option>
+         <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
+         <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <h4>native html select</h4>
+   <mat-form-field>
+      <mat-label>Choose an option</mat-label>
+      <select matNativeControl [disabled]="disableSelect9.value">
+         <option value="" selected></option>
+         <option value="volvo">Volvo</option>
+         <option value="saab" disabled>Saab</option>
+         <option value="mercedes">Mercedes</option>
+         <option value="audi">Audi</option>
+      </select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code9}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section10HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code10}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Resetting the select value</h3>
+      If you want one of your options to reset the select's value, you can omit specifying its value.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with reset option</p>
+   <h4>mat-select</h4>
+   <mat-form-field>
+      <mat-label>State</mat-label>
+      <mat-select>
+         <mat-option>None</mat-option>
+         @for (state of states11; track state) {
+         <mat-option [value]="state">{{state}}</mat-option>
+         }
+      </mat-select>
+   </mat-form-field>
+
+   <h4>native html select</h4>
+   <mat-form-field>
+      <mat-label>Select your car</mat-label>
+      <select matNativeControl id="mySelectId">
+         <option value="" disabled selected></option>
+         <option value="volvo">Volvo</option>
+         <option value="saab">Saab</option>
+         <option value="mercedes">Mercedes</option>
+         <option value="audi">Audi</option>
+      </select>
+   </mat-form-field>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Creating group of options</h3>
+      The &lt;mat-optgroup> element can be used to group common options under a subheading. The name of the group can be
+      set using the label property of &lt;mat-optgroup>. Like individual &lt;mat-option> elements, an entire
+      &lt;mat-optgroup> can be disabled or enabled by setting the disabled property on the grou
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section11HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section11ContentId" aria-expanded="true" aria-controls="section11ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section11ContentId" class="collapse in" role="tabpanel" aria-labelledby="section11HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code11}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section12HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section12ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section12HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code12}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Creating groups of options</h3>
+      &lt;mat-select> defaults to single-selection mode, but can be configured to allow multiple selection by setting
+      the multiple property. This will allow the user to select multiple values at once. When using the &lt;mat-select>
+      in multiple selection mode, its value will be a sorted list of all selected values rather than a single value.
+      <br><br>
+      Using multiple selection with a native select element (&lt;select multiple>) is discouraged inside
+      &lt;mat-form-field>, as the inline listbox appearance is inconsistent with other Material Design components.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with option groups</p>
+   <h4>mat-select</h4>
+   <mat-form-field>
+      <mat-label>Pokemon</mat-label>
+      <mat-select [formControl]="pokemonControl">
+         <mat-option>-- None --</mat-option>
+         @for (group of pokemonGroups; track group) {
+         <mat-optgroup [label]="group.name" [disabled]="group.disabled">
+            @for (pokemon of group.pokemon; track pokemon) {
+            <mat-option [value]="pokemon.value">{{pokemon.viewValue}}</mat-option>
+            }
+         </mat-optgroup>
+         }
+      </mat-select>
+   </mat-form-field>
+
+   <h4>native html select</h4>
+   <mat-form-field>
+      <mat-label>Cars</mat-label>
+      <select matNativeControl>
+         <optgroup label="Swedish Cars">
+            <option value="volvo">volvo</option>
+            <option value="saab">Saab</option>
+         </optgroup>
+         <optgroup label="German Cars">
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+         </optgroup>
+      </select>
+   </mat-form-field>
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section13HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section13ContentId" aria-expanded="true" aria-controls="section13ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section13ContentId" class="collapse in" role="tabpanel" aria-labelledby="section13HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code13}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section14HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section14ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section14ContentId" class="collapse in" role="tabpanel" aria-labelledby="section14HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code14}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Multiple selection</h3>
+      &lt;mat-select> defaults to single-selection mode, but can be configured to allow multiple selection by setting
+      the multiple property. This will allow the user to select multiple values at once. When using the &lt;mat-select>
+      in multiple selection mode, its value will be a sorted list of all selected values rather than a single value.
+      <br><br>
+      Using multiple selection with a native select element (&lt;select multiple>) is discouraged inside
+      &lt;mat-form-field>, as the inline listbox appearance is inconsistent with other Material Design components.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with multiple selection</p>
+   <mat-form-field>
+      <mat-label>Toppings</mat-label>
+      <mat-select [formControl]="toppings15" multiple>
+         @for (topping of toppingList15; track topping) {
+         <mat-option [value]="topping">{{topping}}</mat-option>
+         }
+      </mat-select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section15HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section15ContentId" aria-expanded="true" aria-controls="section15ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section15ContentId" class="collapse in" role="tabpanel" aria-labelledby="section15HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code15}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section16HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section16ContentId" aria-expanded="true" aria-controls="section16ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section16ContentId" class="collapse in" role="tabpanel" aria-labelledby="section16HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code16}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Customizing the trigger label</h3>
+      If you want to display a custom trigger label inside a &lt;mat-select>, you can use the &lt;mat-select-trigger>
+      element.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with custom trigger text</p>
+   <mat-form-field>
+      <mat-label>Toppings</mat-label>
+      <mat-select [formControl]="toppings17" multiple>
+         <mat-select-trigger>
+            {{toppings17.value?.[0] || ''}}
+            @if ((toppings17.value?.length || 0) > 1) {
+            <span class="example-additional-selection">
+               (+{{(toppings17.value?.length || 0) - 1}} {{toppings17.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+            }
+         </mat-select-trigger>
+         @for (topping of toppingList17; track topping) {
+         <mat-option [value]="topping">{{topping}}</mat-option>
+         }
+      </mat-select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section17HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section17ContentId" aria-expanded="true" aria-controls="section17ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section17ContentId" class="collapse in" role="tabpanel" aria-labelledby="section17HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code17}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section18HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section18ContentId" aria-expanded="true" aria-controls="section18ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section18ContentId" class="collapse in" role="tabpanel" aria-labelledby="section18HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code18}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Disabling the ripple effect</h3>
+      By default, when a user clicks on a &lt;mat-option>, a ripple animation is shown. This can be disabled by setting
+      the disableRipple property on &lt;mat-select>.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with no option ripple</p>
+   <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select disableRipple>
+         <mat-option value="1">Option 1</mat-option>
+         <mat-option value="2">Option 2</mat-option>
+         <mat-option value="3">Option 3</mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section19HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section19ContentId" aria-expanded="true" aria-controls="section19ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section19ContentId" class="collapse in" role="tabpanel" aria-labelledby="section19HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code19}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section20HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section20ContentId" aria-expanded="true" aria-controls="section20ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section20ContentId" class="collapse in" role="tabpanel" aria-labelledby="section20HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code20}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Adding custom styles to the dropdown panel</h3>
+      In order to facilitate easily styling the dropdown panel, &lt;mat-select> has a panelClass property which can be
+      used to apply additional CSS classes to the dropdown panel.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with custom panel styling</p>
+   <mat-form-field>
+      <mat-label>Panel color</mat-label>
+      <mat-select [formControl]="panelColor" panelClass="example-panel-{{panelColor.value}}">
+         <mat-option value="red">Red</mat-option>
+         <mat-option value="green">Green</mat-option>
+         <mat-option value="blue">Blue</mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section21HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section21ContentId" aria-expanded="true" aria-controls="section21ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section21ContentId" class="collapse in" role="tabpanel" aria-labelledby="section21HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code21}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section22HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section22ContentId" aria-expanded="true" aria-controls="section22ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section22ContentId" class="collapse in" role="tabpanel" aria-labelledby="section22HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code22}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Changing when error messages are shown</h3>
+      The &lt;mat-form-field> allows you to associate error messages with your &lt;select> or &lt;mat-select>. By
+      default, these error messages are shown when the control is invalid and either the user has interacted with
+      (touched) the element or the parent form has been submitted. If you wish to override this behavior (e.g. to show
+      the error as soon as the invalid control is dirty or when a parent form group is invalid), you can use the
+      errorStateMatcher property of the &lt;mat-select>. The property takes an instance of an ErrorStateMatcher object.
+      An
+      ErrorStateMatcher must implement a single method isErrorState which takes the FormControl for this &lt;mat-select>
+      as well as the parent form and returns a boolean indicating whether errors should be shown. (true indicating
+      that they should be shown, and false indicating that they should not.)
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Select with a custom ErrorStateMatcher</p>
+   <h4>mat-select</h4>
+   <mat-form-field>
+      <mat-label>Choose one</mat-label>
+      <mat-select [formControl]="selected" [errorStateMatcher]="matcher">
+         <mat-option>Clear</mat-option>
+         <mat-option value="valid">Valid option</mat-option>
+         <mat-option value="invalid">Invalid option</mat-option>
+      </mat-select>
+      <mat-hint>Errors appear instantly!</mat-hint>
+      @if (selected.hasError('required')) {
+      <mat-error>You must make a selection</mat-error>
+      }
+      @if (selected.hasError('pattern') && !selected.hasError('required')) {
+      <mat-error>Your selection is invalid</mat-error>
+      }
+   </mat-form-field>
+
+   <h4>native html select</h4>
+   <mat-form-field class="demo-full-width">
+      <mat-label>Choose one</mat-label>
+      <select matNativeControl [formControl]="nativeSelectFormControl" [errorStateMatcher]="matcher">
+         <option value=""></option>
+         <option value="valid" selected>Valid option</option>
+         <option value="invalid">Invalid option</option>
+      </select>
+      @if (nativeSelectFormControl.hasError('required')) {
+      <mat-error>You must make a selection</mat-error>
+      }
+      @if (nativeSelectFormControl.hasError('pattern') && !nativeSelectFormControl.hasError('required')) {
+      <mat-error>Your selection is invalid</mat-error>
+      }
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section23HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section23ContentId" aria-expanded="true" aria-controls="section23ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section23ContentId" class="collapse in" role="tabpanel" aria-labelledby="section23HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code23}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section24HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section24ContentId" aria-expanded="true" aria-controls="section24ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section24ContentId" class="collapse in" role="tabpanel" aria-labelledby="section24HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code24}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      A global error state matcher can be specified by setting the ErrorStateMatcher provider. This applies to all
+      inputs. For convenience, ShowOnDirtyErrorStateMatcher is available in order to globally cause input errors to show
+      when the input is dirty and invalid.
+   </div>
+
+   <div class="card p-2">
+      <pre>
+         {{c1}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fx-bold">Keyboard interaction</h3>
+
+      <table class="table">
+         <thead>
+            <tr>
+               <th>Keyboard shortcut</th>
+               <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td scope="row">Down Arrow</td>
+               <td>Navigate to the next option.</td>
+            </tr>
+            <tr>
+               <td scope="row">Up Arrow</td>
+               <td> Navigate to the previous option.</td>
+            </tr>
+            <tr>
+               <td scope="row">Enter</td>
+               <td>If closed, open the select panel. If open, selects the active option.</td>
+            </tr>
+            <tr>
+               <td scope="row">Escape</td>
+               <td>Close the select panel.</td>
+            </tr>
+            <tr>
+               <td scope="row">Alt + Up Arrow</td>
+               <td>Close the select panel.</td>
+            </tr>
+            <tr>
+               <td scope="row">Alt + Down Arrow</td>
+               <td>Open the select panel if there are any matching options.</td>
+            </tr>
+         </tbody>
+      </table>
+
+      <h3 class="fw-bold m-4">Accessibility</h3>
+
+      When possible, prefer a native &lt;select> element over MatSelect. The native control provides the most accessible
+      experience across the widest range of platforms. <br><br>
+
+      MatSelect implements the combobox pattern detailed in the 1.2 version of the ARIA specification. The combobox
+      trigger controls a role="listbox" element opened in a pop-up. Previous versions of the ARIA specification required
+      that role="combobox" apply to a text input control, but the 1.2 version of the specification supports a wider
+      variety of interaction patterns. This newer usage of ARIA works in all browser and screen-reader combinations
+      supported by Angular Material. <br><br>
+
+      Because the pop-up uses the role="listbox" pattern, you should not put other interactive controls, such as buttons
+      or checkboxes, inside a select option. Nesting interactive controls like this interferes with most assistive
+      technology. <br><br>
+
+      Always provide an accessible label for the select. This can be done by adding a &lt;mat-label> inside of
+      &lt;mat-form-field>, the aria-label attribute, or the aria-labelledby attribute. <br><br>
+
+      By default, MatSelect displays a checkmark to identify selected items. While you can hide the checkmark indicator
+      for single-selection via hideSingleSelectionIndicator, this makes the component less accessible by making it
+      harder or impossible for users to visually identify selected items. <br><br>
+
+      <h3 class="fw-bold m-4">Troubleshooting</h3>
+      <span class="fw-bold">Error: Cannot change multiple mode of select after initialization</span>
+      This error is thrown if you attempt to bind the multiple property on &lt;mat-select> to a dynamic value. (e.g.
+      [multiple]="isMultiple" where the value of isMultiple changes over the course of the component's lifetime). If you
+      need to change this dynamically, use &#64;if or &#64;switch instead:
+   </div>
+
+
+   <div class="card width-600 p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+</div>

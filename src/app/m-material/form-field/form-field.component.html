@@ -1,0 +1,506 @@
+<div class="mt-4 align-items-end">
+   <div class="width-600 lh-text">
+      &lt;mat-form-field> is a component used to wrap several Angular Material components and apply common Text field
+      styles such as the underline, floating label, and hint messages. <br><br>
+
+      In this document, "form field" refers to the wrapper component < mat-form-field> and "form field control"
+         refers to the component that the &lt;mat-form-field> is wrapping (e.g. the input, textarea, select, etc.)
+         <br><br>
+
+         The following Angular Material components are designed to work inside a &lt;mat-form-field>: <br>
+         <ul class="note">
+            <li>
+               &lt;input matNativeControl> & &lt;textarea matNativeControl>
+            </li>
+            <li>
+               &lt;select matNativeControl>
+            </li>
+            <li>
+               &lt;mat-select>
+            </li>
+            <li>
+               &lt;mat-chip-list>
+            </li>
+         </ul>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Simple form field</p>
+   <mat-form-field>
+      <mat-label>Input</mat-label>
+      <input matInput>
+   </mat-form-field>
+   <br>
+   <mat-form-field>
+      <mat-label>Select</mat-label>
+      <mat-select>
+         <mat-option value="one">First option</mat-option>
+         <mat-option value="two">Second option</mat-option>
+      </mat-select>
+   </mat-form-field>
+   <br>
+   <mat-form-field>
+      <mat-label>Textarea</mat-label>
+      <textarea matInput></textarea>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Form field appearance variants</h3>
+      mat-form-field supports two different appearance variants which can be set via the appearance input: fill and
+      outline. The fill appearance displays the form field with a filled background box and an underline, while the
+      outline appearance shows the form field with a border all the way around. <br><br>
+
+      Out of the box, if you do not specify an appearance for the < mat-form-field> it will default to fill. However,
+         this can be configured using a global provider to choose a different default appearance for your app.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Form field appearance variants</p>
+   <p>
+      <mat-form-field appearance="fill">
+         <mat-label>Fill form field</mat-label>
+         <input matInput placeholder="Placeholder">
+         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+         <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+   </p>
+   <p>
+      <mat-form-field appearance="outline">
+         <mat-label>Outline form field</mat-label>
+         <input matInput placeholder="Placeholder">
+         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+         <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+   </p>
+</div>
+
+<div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+   <div class="card width-600">
+      <div class="card-header " role="tab" id="section3HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+               component
+            </a>
+         </h5>
+      </div>
+      <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+                  {{code3}}
+               </pre>
+         </div>
+      </div>
+   </div>
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section4HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+               HTML
+            </a>
+         </h5>
+      </div>
+      <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+                  {{code4}}
+               </pre>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-6àà lh-text">
+      <h3 class="fw-bold">Floating label</h3>
+      The floating label is a text label displayed on top of the form field control when the control does not contain
+      any text or when &lt;select matNativeControl> does not show any option text. By default, when text is present the
+      floating label floats above the form field control. The label for a form field can be specified by adding a
+      mat-label element. <br><br>
+
+      If the form field control is marked with a required attribute, an asterisk will be appended to the label to
+      indicate the fact that it is a required field. If unwanted, this can be disabled by setting the
+      hideRequiredMarker property on < mat-form-field> <br><br>
+
+         The floatLabel property of < mat-form-field> can be used to change this default floating behavior. It can be
+            set to always to float the label even when no text is present in the form field control, or to auto to
+            restore the default behavior.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Form field with label</p>
+   <div class="example-container">
+      <form [formGroup]="options">
+         <mat-checkbox [formControl]="hideRequiredControl">Hide required marker</mat-checkbox>
+         <div>
+            <label>Float label: </label>
+            <mat-radio-group [formControl]="floatLabelControl">
+               <mat-radio-button value="auto">Auto</mat-radio-button>
+               <mat-radio-button value="always">Always</mat-radio-button>
+            </mat-radio-group>
+         </div>
+
+         <div class="example-form-fields">
+            <mat-form-field [hideRequiredMarker]="hideRequiredControl.value" [floatLabel]="getFloatLabelValue()">
+               <input matInput placeholder="Simple placeholder" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field [floatLabel]="getFloatLabelValue()">
+               <mat-label>Both a label and a placeholder</mat-label>
+               <input matInput placeholder="Simple placeholder">
+            </mat-form-field>
+            <br>
+            <mat-form-field [hideRequiredMarker]="hideRequiredControl.value" [floatLabel]="getFloatLabelValue()">
+               <mat-select required>
+                  <mat-option>-- None --</mat-option>
+                  <mat-option value="option">Option</mat-option>
+               </mat-select>
+               <mat-label><mat-icon>favorite</mat-icon> <strong> Fancy</strong> <em> label</em></mat-label>
+            </mat-form-field>
+         </div>
+      </form>
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+
+      The floating label behavior can be adjusted globally by providing a value for MAT_FORM_FIELD_DEFAULT_OPTIONS in
+      your application's root module. Like the floatLabel input, the option can be either set to always or auto.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Hint labels</h3>
+      Hint labels are additional descriptive text that appears below the form field's underline. A &lt;mat-form-field>
+      can
+      have up to two hint labels; one start-aligned (left in an LTR language, right in RTL), and one end-aligned.
+
+      Hint labels are specified in one of two ways: either by using the hintLabel property of &lt;mat-form-field>, or
+      by adding a &lt;mat-hint> element inside the form field. When adding a hint via the hintLabel property, it
+      will be treated as the start hint. Hints added via the < mat-hint> hint element can be added to either
+         side by setting the align property on < mat-hint> to either start or end. Attempting to add multiple
+            hints to the same side will raise an error.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Form field with hints</p>
+   <div class="example-container">
+      <mat-form-field hintLabel="Max 10 characters">
+         <mat-label>Enter some input</mat-label>
+         <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+         <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+         <mat-label>Select me</mat-label>
+         <mat-select>
+            <mat-option value="option">Option</mat-option>
+         </mat-select>
+         <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+      </mat-form-field>
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code7}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code8}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Error messages</h3>
+      Error messages can be shown under the form field underline by adding mat-error elements inside the form field.
+      Errors are hidden initially and will be displayed on invalid form fields after the user has interacted with the
+      element or the parent form has been submitted. Since the errors occupy the same space as the hints, the hints are
+      hidden when the errors are shown. <br><br>
+
+      If a form field can have more than one error state, it is up to the consumer to toggle which messages should be
+      displayed. This can be done with CSS, &#64;if or &#64;switch. Multiple error messages can be shown at the same
+      time if
+      desired, but the &lt;mat-form-field> only reserves enough space to display one error message at a time. Ensuring
+      that enough space is available to display multiple errors is up to the user.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Form field with error messages</p>
+   <div class="example-container">
+      <mat-form-field>
+         <mat-label>Enter your email</mat-label>
+         <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required>
+         @if (email.invalid) {
+         <mat-error>{{errorMessage}}</mat-error>
+         }
+      </mat-form-field>
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code9}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section10HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code10}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Prefix and sufix</h3>
+      Custom content can be included before and after the input tag, as a prefix or suffix. It will be included within
+      the visual container that wraps the form control as per the Material specification. <br><br>
+
+      Adding the matPrefix directive to an element inside the &lt;mat-form-field> will designate it as the prefix.
+      Similarly, adding matSuffix will designate it as the suffix. <br>
+
+      If the prefix/suffix content is purely text-based, it is recommended to use the matTextPrefix or matTextSuffix
+      directives which ensure that the text is aligned with the form control.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Form field with prefix & suffix</p>
+   <div class="example-container">
+      <mat-form-field>
+         <mat-label>Enter your password</mat-label>
+         <input matInput [type]="hide ? 'password' : 'text'">
+         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+         </button>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="always">
+         <mat-label>Amount</mat-label>
+         <input matInput type="number" class="example-right-align" placeholder="0">
+         <span matTextPrefix>$&nbsp;</span>
+         <span matTextSuffix>.00</span>
+      </mat-form-field>
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section11HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section11ContentId" aria-expanded="true" aria-controls="section11ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section11ContentId" class="collapse in" role="tabpanel" aria-labelledby="section11HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code11}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section12HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section12ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section12HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code12}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Custom form field controls</h3>
+      In addition to the form field controls that Angular Material provides, it is possible to create custom form field
+      controls that work with &lt;mat-form-field> in the same way. For additional information on this see the guide on
+      Creating Custom mat-form-field Controls.
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Theming</h3>
+      &lt;mat-form-field> has a color property which can be set to primary, accent, or warn. This will set the color of
+      the form field underline and floating label based on the theme colors of your app.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Form field theming</p>
+   <mat-form-field [color]="colorControl.value!">
+      <mat-label>Color</mat-label>
+      <mat-select [formControl]="colorControl">
+         <mat-option value="primary">Primary</mat-option>
+         <mat-option value="accent">Accent</mat-option>
+         <mat-option value="warn">Warn</mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section13HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section13ContentId" aria-expanded="true" aria-controls="section13ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section13ContentId" class="collapse in" role="tabpanel" aria-labelledby="section13HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code13}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section14HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section14ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section14ContentId" class="collapse in" role="tabpanel" aria-labelledby="section14HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code14}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>

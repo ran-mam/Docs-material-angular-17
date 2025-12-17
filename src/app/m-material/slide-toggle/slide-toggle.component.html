@@ -1,0 +1,69 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      &lt;mat-slide-toggle> is an on/off control that can be toggled via clicking.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Slide toggler</p>
+   <mat-slide-toggle>Slide me!</mat-slide-toggle>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      The slide-toggle behaves similarly to a checkbox, though it does not support an indeterminate state like &lt;mat-checkbox>. <br><br>
+
+       <h3 class="fw-bold">Slide-toggle label</h3>  
+        The slide-toggle label is provided as the content to the &lt;mat-slide-toggle> element. <br><br>
+        
+        If you don't want the label to appear next to the slide-toggle, you can use aria-label or aria-labelledby to specify an appropriate label. <br><br>
+        
+        <h3 class="fw-bold">Use with &#64;angular/forms</h3>  
+         &lt;mat-slide-toggle> is compatible with &#64;/forms and supports both FormsModule and ReactiveFormsModule. <br><br>
+        
+         <h3 class="fw-bold">Theming</h3>  
+        The color of a &lt;mat-slide-toggle> can be changed by using the color property. By default, slide-toggles use the theme's accent color. This can be changed to 'primary' or 'warn'. <br><br>
+        
+        <h3 class="fw-bold">Accessibility</h3>   
+        MatSlideToggle uses an internal &lt;button role="switch"> to provide an accessible experience. This internal button receives focus and is automatically labelled by the text content of the &lt;mat-slide-toggle> element. Avoid adding other interactive controls into the content of &lt;mat-slide-toggle>, as this degrades the experience for users of assistive technology. <br><br>
+        
+        Always provide an accessible label via aria-label or aria-labelledby for toggles without descriptive text content. For dynamic labels, MatSlideToggle provides input properties for binding aria-label and aria-labelledby. This means that you should not use the attr. prefix when binding these properties, as demonstrated below.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c1}}</pre>
+   </div>
+</div>

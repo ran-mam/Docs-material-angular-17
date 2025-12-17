@@ -1,0 +1,180 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      The matSort and mat-sort-header are used, respectively, to add sorting state and display to tabular data.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Slide toggler</p>
+   <table matSort (matSortChange)="sortData($event)">
+      <tr>
+         <th mat-sort-header="name">Dessert (100g)</th>
+         <th mat-sort-header="calories">Calories</th>
+         <th mat-sort-header="fat">Fat (g)</th>
+         <th mat-sort-header="carbs">Carbs (g)</th>
+         <th mat-sort-header="protein">Protein (g)</th>
+      </tr>
+
+      @for (dessert of sortedData; track dessert) {
+      <tr>
+         <td>{{dessert.name}}</td>
+         <td>{{dessert.calories}}</td>
+         <td>{{dessert.fat}}</td>
+         <td>{{dessert.carbs}}</td>
+         <td>{{dessert.protein}}</td>
+      </tr>
+      }
+   </table>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Adding sort to table headers</h3>
+      To add sorting behavior and styling to a set of table headers, add the &lt;mat-sort-header> component to each
+      header and provide an id that will identify it. These headers should be contained within a parent element with the
+      matSort directive, which will emit a matSortChange event when the user triggers sorting on the header. <br><br>
+      Users can trigger the sort header through a mouse click or keyboard action. When this happens, the matSort will
+      emit a matSortChange event that contains the ID of the header triggered and the direction to sort (asc or desc).
+      <h3 class="fw-bold">Changing the sort order</h3>
+      By default, a sort header starts its sorting at asc and then desc. Triggering the sort header after desc will
+      remove sorting. <br><br>
+      To reverse the sort order for all headers, set the matSortStart to desc on the matSort directive. To reverse the
+      order only for a specific header, set the start input only on the header instead. <br><br>
+      To prevent the user from clearing the sort state from an already sorted column, set matSortDisableClear to true on
+      the matSort to affect all headers, or set disableClear to true on a specific header. <br><br>
+      <h3 class="fw-bold">Disabling sorting</h3>
+      If you want to prevent the user from changing the sorting order of any column, you can use the matSortDisabled
+      binding on the mat-sort, or the disabled on a single mat-sort-header. <br><br>
+      <h3 class="fw-bold">Using sort with the mat-table</h3>
+      When used on a mat-table header, it is not required to set a mat-sort-header id on because by default it will use
+      the id of the column.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Table with sorting</p>
+   <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+      class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+            No.
+         </th>
+         <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Name
+         </th>
+         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+            Weight
+         </th>
+         <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+            Symbol
+         </th>
+         <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+   </table>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code3}}
+            </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code4}}
+            </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accessibility</h3>
+      When you apply MatSortHeader to a header cell element, the component wraps the content of the header cell inside a
+      button. The text content of the header cell then becomes the accessible label for the sort button. However, the
+      header cell text typically describes the column and does not indicate that interacting with the control performs a
+      sorting action. To clearly communicate that the header performs sorting, always use the sortActionDescription
+      input to provide a description for the button element, such as "Sort by last name". <br><br>
+
+      MatSortHeader applies the aria-sort attribute to communicate the active sort state to assistive technology.
+      However, most screen readers do not announce changes to the value of aria-sort, meaning that screen reader users
+      do not receive feedback that sorting occurred. To remedy this, use the matSortChange event on the MatSort
+      directive to announce state updates with the LiveAnnouncer service from &#64;angular/cdk/a11y. <br><br>
+
+      If your application contains many tables and sort headers, consider creating a custom directives to consistently
+      apply sortActionDescription and announce sort state changes.
+   </div>
+
+</div>

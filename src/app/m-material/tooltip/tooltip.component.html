@@ -1,0 +1,326 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper overview</p>
+   <button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Positioning</h3>
+      The tooltip will be displayed below the element but this can be configured using the matTooltipPosition input. The tooltip can be displayed above, below, left, or right of the element. By default the position will be below. If the tooltip should switch left/right positions in an RTL layout direction, then the positions before and after should be used instead of left and right, respectively. <br><br>
+
+      <table class="table mb-4">
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>Descritption</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td scope="row">Above</td>
+               <td>Always display above the element</td>
+            </tr>
+            <tr>
+               <td scope="row">Below</td>
+               <td>Always display beneath the element</td>
+            </tr>
+            <tr>
+               <td scope="row">Left</td>
+               <td>Always display to the left of the element</td>
+            </tr>
+            <tr>
+               <td scope="row">Right</td>
+               <td>Always display to the right of the element</td>
+            </tr>
+            <tr>
+               <td scope="row">Before</td>
+               <td>Display to the left in left-to-right layout and to the right in right-to-left layout</td>
+            </tr>
+            <tr>
+               <td scope="row">After</td>
+               <td>Display to the right in left-to-right layout and to the left in right-to-left layout</td>
+            </tr>
+         </tbody>
+      </table>
+
+      <p>Based on the position in which the tooltip is shown, the .mat-tooltip-panel element will receive a CSS class that can be used for style (e.g. to add an arrow). The possible classes are mat-tooltip-panel-above, mat-tooltip-panel-below, mat-tooltip-panel-left, mat-tooltip-panel-right.</p>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Tooltip with a custom position</p>
+   <mat-form-field class="example-user-input">
+      <mat-label>Tooltip position</mat-label>
+      <mat-select [formControl]="position3">
+        @for (positionOption of positionOptions3; track positionOption) {
+          <mat-option [value]="positionOption">{{positionOption}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    
+    <button mat-raised-button
+            matTooltip="Info about the action"
+            [matTooltipPosition]="position3.value!"
+            aria-label="Button that displays a tooltip in various positions">
+      Action
+    </button>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code3}}
+            </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+               {{code4}}
+            </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Show and hiding</h3>
+      By default, the tooltip will be immediately shown when the user's mouse hovers over the tooltip's trigger element and immediately hides when the user's mouse leaves. <br>
+
+On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay of 1500ms.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Tooltip with a show and hide delay</p>
+   <mat-form-field class="example-user-input">
+      <mat-label>Show delay</mat-label>
+      <input matInput type="number" [formControl]="showDelay5"
+             aria-label="Adds a delay between hovering over the button and displaying the tooltip">
+      <mat-hint>milliseconds</mat-hint>
+    </mat-form-field>
+    
+    <mat-form-field class="example-user-input">
+      <mat-label>Hide delay</mat-label>
+      <input matInput type="number" [formControl]="hideDelay5"
+             aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
+      <mat-hint>milliseconds</mat-hint>
+    </mat-form-field>
+    
+    <button mat-raised-button matTooltip="Info about the action"
+            [matTooltipShowDelay]="showDelay5.value"
+            [matTooltipHideDelay]="hideDelay5.value"
+            aria-label="Button that displays a tooltip with a customized delay in showing and hiding">
+      Action
+    </button>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Tooltip with a show and hide delay</p>
+   <button mat-raised-button
+        matTooltip="By default, I delay"
+        aria-label="Button that displays a tooltip that has custom delays through a default config">
+  Button with delay-default tooltip
+</button>
+
+<div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section7HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+               component
+            </a>
+         </h5>
+      </div>
+      <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+               {{code7}}
+            </pre>
+         </div>
+      </div>
+   </div>
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section8HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+               HTML
+            </a>
+         </h5>
+      </div>
+      <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+               {{code8}}
+            </pre>
+         </div>
+      </div>
+   </div>
+</div>
+
+<p class="mt-4 text-bg-primary text-center p-2 rounded-5">Tooltip that can be manually shown/hidden.</p>
+<div>
+   <span> Click the following buttons to... </span>
+   <button mat-button
+           (click)="tooltip.show()"
+           aria-label="Show tooltip on the button at the end of this section"
+           class="example-action-button">
+     show
+   </button>
+   <button mat-button
+           (click)="tooltip.hide()"
+           aria-label="Hide tooltip on the button at the end of this section"
+           class="example-action-button">
+     hide
+   </button>
+   <button mat-button
+           (click)="tooltip.toggle()"
+           aria-label="Show/Hide tooltip on the button at the end of this section"
+           class="example-action-button">
+     toggle show/hide
+   </button>
+ </div>
+ 
+ <button mat-raised-button #tooltip="matTooltip"
+         matTooltip="Info about the action"
+         matTooltipPosition="right"
+         aria-tooltip="Button that displays and hides a tooltip triggered by other buttons">
+   Action
+ </button>
+
+ <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section7HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+               component
+            </a>
+         </h5>
+      </div>
+      <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+            {{code9}}
+         </pre>
+         </div>
+      </div>
+   </div>
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section10HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+               HTML
+            </a>
+         </h5>
+      </div>
+      <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+            {{code10}}
+         </pre>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+ 
+
+</div>

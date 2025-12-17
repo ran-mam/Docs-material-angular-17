@@ -1,0 +1,137 @@
+<div class="mt-4">
+   <div class="width-600 lh-text mb-4">
+      The MatBottomSheet service can be used to open Material Design panels to the bottom of the screen. These panels
+      are intended primarily as an interaction on mobile devices where they can be used as an alternative to dialogs
+      and
+      menus.
+   </div>
+   <p>You have received a file called "cat-picture.jpeg".</p>
+   <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+
+   <div class="width-600 lh-text mb-4">
+      You can open a bottom sheet by calling the open method with a component to be loaded and an optional config
+      object. The open method will return an instance of MatBottomSheetRef:
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Bottom Sheet Overview</p>
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code1}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      You can open a bottom sheet by calling the open method with a component to be loaded and an optional config
+      object. The open method will return an instance of MatBottomSheetRef:
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code2}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      The MatBottomSheetRef is a reference to the currently-opened bottom sheet and can be used to close it or to
+      subscribe to events. Note that only one bottom sheet can be open at a time. Any component contained inside of a
+      bottom sheet can inject the MatBottomSheetRef as well.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code3}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Sharing data with the bottom sheet component.</h3>
+      If you want to pass in some data to the bottom sheet, you can do so using the data property:
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code4}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      Afterwards you can access the injected data using the MAT_BOTTOM_SHEET_DATA injection token:
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code5}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Specifying global configuration defaults</h3>
+      Default bottom sheet options can be specified by providing an instance of MatBottomSheetConfig for MAT_BOTTOM_SHEET_DEFAULT_OPTIONS in your application's root module.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code6}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Accessibility</h3>
+      MatBottomSheet creates modal dialogs that implement the ARIA role="dialog" pattern. This root dialog element should be given an accessible label via the ariaLabel property of MatBottomSheetConfig.
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Keyboard interaction</h3>
+      By default, the escape key closes MatBottomSheet. While you can disable this behavior by using the disableClose property of MatBottomSheetConfig, doing this breaks the expected interaction pattern for the ARIA role="dialog" pattern.
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Focus management</h3>
+      When opened, MatBottomSheet traps browser focus such that it cannot escape the root role="dialog" element. By default, the first tabbable element in the bottom sheet receives focus. You can customize which element receives focus with the autoFocus property of MatBottomSheetConfig, which supports the following values.
+   </div>
+
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Value</th>
+            <th>Behavior</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td scope="row">first-tabbable</td>
+            <td>Focus the first tabbable element. This is the default setting.</td>
+         </tr>
+         <tr>
+            <td scope="row">first-header</td>
+            <td>Focus the first header element (role="heading", h1 through h6)</td>
+         </tr>
+         <tr>
+            <td scope="row">dialog</td>
+            <td>Focus the root role="dialog" element.</td>
+         </tr>
+         <tr>
+            <td scope="row">Any CSS selector</td>
+            <td>Focus the first element matching the given selector.</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="width-600 lh-text mb-4">
+      While the default setting applies the best behavior for most applications, special cases may benefit from these alternatives. Always test your application to verify the behavior that works best for your users.
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Focus restoration</h3>
+      When closed, MatBottomSheet restores focus to the element that previously held focus when the bottom sheet opened. However, if that previously focused element no longer exists, you must add additional handling to return focus to an element that makes sense for the user's workflow. Opening a bottom sheet from a menu is one common pattern that causes this situation. The menu closes upon clicking an item, thus the focused menu item is no longer in the DOM when the bottom sheet attempts to restore focus. <br><br>
+      You can add handling for this situation with the afterDismissed() observable from MatBottomSheetRef. 
+   </div>
+
+   <div class="card width-600 mt-3 p-2">
+      <pre>
+         {{code7}}
+      </pre>
+   </div>
+
+
+</div>

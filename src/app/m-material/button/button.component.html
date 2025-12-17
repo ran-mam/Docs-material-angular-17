@@ -1,0 +1,300 @@
+<div class="mt-4 align-items-end">
+   <div class="width-600 lh-text mb-4 mb-4">Angular Material buttons are native &lt;button> or &lt;a> elements enhanced with
+            Material Design styling and ink ripples.</div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Filter autoComplete</p>
+
+   <section>
+      <div class="example-label">Basic</div>
+      <div class="example-button-row">
+         <button mat-button>Basic</button>
+         <button mat-button color="primary">Primary</button>
+         <button mat-button color="accent">Accent</button>
+         <button mat-button color="warn">Warn</button>
+         <button mat-button disabled>Disabled</button>
+         <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+   </section>
+   <mat-divider></mat-divider>
+   <section>
+      <div class="example-label">Raised</div>
+      <div class="example-button-row">
+         <button mat-raised-button>Basic</button>
+         <button mat-raised-button color="primary">Primary</button>
+         <button mat-raised-button color="accent">Accent</button>
+         <button mat-raised-button color="warn">Warn</button>
+         <button mat-raised-button disabled>Disabled</button>
+         <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+   </section>
+   <mat-divider></mat-divider>
+   <section>
+      <div class="example-label">Stroked</div>
+      <div class="example-button-row">
+         <button mat-stroked-button>Basic</button>
+         <button mat-stroked-button color="primary">Primary</button>
+         <button mat-stroked-button color="accent">Accent</button>
+         <button mat-stroked-button color="warn">Warn</button>
+         <button mat-stroked-button disabled>Disabled</button>
+         <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+   </section>
+   <mat-divider></mat-divider>
+   <section>
+      <div class="example-label">Flat</div>
+      <div class="example-button-row">
+         <button mat-flat-button>Basic</button>
+         <button mat-flat-button color="primary">Primary</button>
+         <button mat-flat-button color="accent">Accent</button>
+         <button mat-flat-button color="warn">Warn</button>
+         <button mat-flat-button disabled>Disabled</button>
+         <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+   </section>
+   <mat-divider></mat-divider>
+   <section>
+      <div class="example-label">Icon</div>
+      <div class="example-button-row">
+         <div class="example-flex-container">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+               <mat-icon>more_vert</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+               <mat-icon>home</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+               <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+               <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+               <mat-icon>open_in_new</mat-icon>
+            </button>
+         </div>
+      </div>
+   </section>
+   <mat-divider></mat-divider>
+   <section>
+      <div class="example-label">FAB</div>
+      <div class="example-button-row">
+         <div class="example-flex-container">
+            <div class="example-button-container">
+               <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+               </button>
+            </div>
+            <div class="example-button-container">
+               <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                  <mat-icon>bookmark</mat-icon>
+               </button>
+            </div>
+            <div class="example-button-container">
+               <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+                  <mat-icon>home</mat-icon>
+               </button>
+            </div>
+            <div class="example-button-container">
+               <button mat-fab disabled aria-label="Example icon button with a heart icon">
+                  <mat-icon>favorite</mat-icon>
+               </button>
+            </div>
+         </div>
+      </div>
+   </section>
+   <mat-divider></mat-divider>
+   <section>
+      <div class="example-label">Mini FAB</div>
+      <div class="example-button-row">
+         <div class="example-flex-container">
+            <div class="example-button-container">
+               <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                  <mat-icon>menu</mat-icon>
+               </button>
+            </div>
+            <div class="example-button-container">
+               <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+                  <mat-icon>plus_one</mat-icon>
+               </button>
+            </div>
+            <div class="example-button-container">
+               <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+                  <mat-icon>filter_list</mat-icon>
+               </button>
+            </div>
+            <div class="example-button-container">
+               <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
+                  <mat-icon>home</mat-icon>
+               </button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mb-4 mb-4">
+      Native &lt;button> and &lt;a> elements are always used in order to provide the most straightforward and accessible
+            experience for users. A < button> element should be used whenever some action is performed. An &lt;a> element
+                  should be used whenever the user will navigate to another view. <br><br>
+                  There are several button variants, each applied as an attribute:
+   </div>
+
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td scope="row">mat-button</td>
+            <td>Rectangular text button w/ no elevation</td>
+         </tr>
+         <tr>
+            <td scope="row">mat-raised-button</td>
+            <td>Rectangular contained button w/ elevation</td>
+         </tr>
+         <tr>
+            <td scope="row">mat-flat-button</td>
+            <td>Rectangular contained button w/ no elevation</td>
+         </tr>
+         <tr>
+            <td scope="row">mat-stroked-button</td>
+            <td>Rectangular outlined button w/ no elevation</td>
+         </tr>
+         <tr>
+            <td scope="row">mat-icon-button</td>
+            <td>Circular button with a transparent background, meant to contain an icon</td>
+         </tr>
+         <tr>
+            <td scope="row">mat-fab</td>
+            <td>Circular button w/ elevation, defaults to theme's accent color</td>
+         </tr>
+         <tr>
+            <td scope="row">mat-mini-fab</td>
+            <td>Same as mat-fab but smaller</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Theming</h3>
+      Buttons can be colored in terms of the current theme using the color property to set the background color to
+      primary, accent, or warn.
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Capitalization</h3>
+      According to the Material design spec button text has to be capitalized, however we have opted not to capitalize
+      buttons automatically via text-transform: uppercase, because it can cause issues in certain locales. It is also
+      worth noting that using ALL CAPS in the text itself causes issues for screen-readers, which will read the text
+      character-by-character. We leave the decision of how to approach this to the consuming app.
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Extended fab buttons</h3>
+      Traditional fab buttons are circular and only have space for a single icon. However, you can add the extended
+      attribute to allow the fab to expand into a rounded rectangle shape with space for a text label in addition to the
+      icon. Only full sized fabs support the extended attribute, mini fabs do not.
+   </div>
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code2}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Interactive disabled buttons</h3>
+      Native disabled &lt;button> elements cannot receive focus and do not dispatch any events. This can be problematic in
+         some cases because it can prevent the app from telling the user why the button is disabled. You can use the
+         disabledInteractive input to style the button as disabled but allow for it to receive focus and dispatch
+         events. The button will have aria-disabled="true" for assistive technology. The behavior can be configured
+         globally through the MAT_BUTTON_CONFIG injection token.
+
+         Note: Using the disabledInteractive input can result in buttons that previously prevented actions to no longer
+         do so, for example a submit button in a form. When using this input, you should guard against such cases in
+         your component.
+   </div>
+
+      <button mat-raised-button disabled disabledInteractive matTooltip="This is a tooltip!">Disabled button allowing
+         interactivity</button> <br><br>
+      <button mat-raised-button disabled matTooltip="This is a tooltip!">Default disabled button</button>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Accessibility</h3>
+      Angular Material uses native < button> and < a> elements to ensure an accessible experience by default. A &lt;button> element should be used for any interaction that performs an action on the current page. An &lt;a>
+                  element should be used for any interaction that navigates to another URL. All standard accessibility
+                  best practices for buttons and anchors apply to MatButton.
+   </div>
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Disabling anchors</h3>
+      MatAnchor supports disabling an anchor in addition to the features provided by the native < a> element. When you
+         disable an anchor, the component sets aria-disabled="true" and tabindex="-1". Always test disabled anchors in
+         your application to ensure compatibility with any assistive technology your application supports.
+   </div>
+   <div class="width-600 lh-text mb-4">
+      <h3 class="fw-bold">Buttons with icons</h3>
+      Buttons or links containing only icons (such as mat-fab, mat-mini-fab, and mat-icon-button) should be given a
+      meaningful label via aria-label or aria-labelledby. See the documentation for MatIcon for more information on
+      using icons in buttons.
+   </div>
+
+
+</div>

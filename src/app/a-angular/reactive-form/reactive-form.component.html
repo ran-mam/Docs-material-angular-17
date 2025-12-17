@@ -1,0 +1,335 @@
+<div class="container-fluid">
+    <p class="text-center fs-2 text-danger my-4 fw-bolder">Reactive Form</p>
+    <p>Reactive forms provide a model-driven approach to handling form inputs whose values change over time. This guide
+        shows you how to create and update a basic form control, progress to using multiple controls in a group,
+        validate form values, and create dynamic forms where you can add or remove controls at run time.</p>
+
+    <h2 class="fw-bold title">Prerequisites</h2>
+    Before going further into reactive forms, you should have a basic understanding of the following:
+    <br><br>
+    <ul>
+        <li>TypeScript programming</li>
+        <li>Angular application-design fundamentals, as described in Angular Concepts</li>
+        <li>The form-design concepts that are presented in Introduction to Forms</li>
+    </ul>
+
+    <h2 class="fw-bold title">Overview of reactive forms</h2>
+    <p>
+        Reactive forms use an explicit and immutable approach to managing the state of a form at a given point in time.
+        Each change to the form state returns a new state, which maintains the integrity of the model between changes.
+        Reactive forms are built around <span class="text-decoration-underline">observable</span> streams, where form inputs and values are provided as streams of
+        input values, which can be accessed synchronously.
+        <br><br>
+        Reactive forms also provide a straightforward path to testing because you are assured that your data is
+        consistent and predictable when requested. Any consumers of the streams have access to manipulate that data
+        safely.
+        <br><br>
+        Reactive forms differ from <span class="text-decoration-underline">template-driven</span> forms in distinct ways. Reactive forms provide synchronous access to
+        the data model, immutability with observable operators, and change tracking through observable streams.
+        <br><br>
+        Template-driven forms let direct access modify data in your template, but are less explicit than reactive forms
+        because they rely on directives embedded in the template, along with mutable data to track changes
+        asynchronously. See the <span class="text-decoration-underline">Forms Overview</span> for detailed comparisons between the two paradigms.
+    </p>
+
+    <h2 class="fw-bold title">Basic</h2>
+    <div class="bg-dark p-2">
+        <img src="../../../assets/images/basicFormControl.png" alt="">
+    </div>
+    <p class="mt-3">Use the CLI command ng generate to generate a component in your project to register and host the
+        FormControl and
+        ReactiveFormsModule.</p>
+    <mat-card class="shadow code">
+        <pre>{{code1}}</pre>
+    </mat-card>
+    <p class="mt-3">After you create the control in the component class, you must associate it with a form control
+        element in the
+        template. Update the template with the form control using the formControl binding provided by
+        FormControlDirective, which is also included in the ReactiveFormsModule.</p>
+    <mat-card class="shadow code">
+        <pre>{{code2}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Replacing a form control value</p>
+    <div class="bg-dark p-2">
+        <img src="../../../assets/images/updateFormControl.png" alt="">
+    </div>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code3}}</pre>
+    </mat-card>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code4}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Create a FormGroup instance & Associate the FormGroup model and view</p>
+    <div class="bg-dark p-2 mt-3">
+        <img src="../../../assets/images/formControlSubmit.png" alt="">
+    </div>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code5}}</pre>
+    </mat-card>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code6}}</pre>
+    </mat-card>
+
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Creating nested form groups or multiple formGroup</p>
+    <div class="bg-dark p-2 mt-3">
+        <img src="../../../assets/images/multipleFormGroup.png" alt="">
+    </div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code7}}</pre>
+    </mat-card>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code8}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Creating nested form groups or multiple formGroup</p>
+    <p>
+        When updating the value for a form group instance that contains multiple controls, you might only want to update
+        parts of the model. This section covers how to update specific parts of a form control data model.
+
+        There are two ways to update the model value:
+    </p>
+
+    <table class="table table-bordered border-black">
+        <thead>
+            <tr>
+                <th>Methods</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>setValue()</td>
+                <td>Set a new value for an individual control. The setValue() method strictly adheres to the structure
+                    of the form group and replaces the entire value for the control.</td>
+            </tr>
+            <tr>
+                <td>patchValue()</td>
+                <td>Replace any properties defined in the object that have changed in the form model.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="bg-dark p-2 mt-3 text-white">
+        <form [formGroup]="profileForm" class="w-75">
+            <label for="street">FistName: </label><br>
+            <input class="form-control shadow-none border-black" type="text" formControlName="firstName">
+            <div formGroupName="address" class="mt-3">
+                <h2 class="text-secondary m-0">Adresse</h2>
+                <label for="street">Street: </label><br>
+                <input class="form-control shadow-none border-black" id="street" type="text" formControlName="street">
+            </div>
+            <button class="btn fs-5 btn-light mt-2" type="button" (click)="updateProfile()">Update Profile</button>
+        </form>
+    </div>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code9}}</pre>
+    </mat-card>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code10}}</pre>
+    </mat-card>
+
+    <h2 class="fw-bold title">Using form builder</h2>
+    <p>Import the FormBuilder class from the &#64;angular/forms package.
+        The FormBuilder service is an injectable provider that is provided with the reactive forms module. Inject this
+        dependency by adding it to the component constructor.
+        The FormBuilder service has three methods: control(), group(), and array(). These are factory methods for
+        generating instances in your component classes including form controls, form groups, and form arrays. Use the
+        group method to create the profileForm controls.</p>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code11}}</pre>
+    </mat-card>
+
+    <p class="mt-3">In the preceding example, you use the group() method with the same object to define the properties
+        in the model.
+        The value for each control name is an array containing the initial value as the first item in the array.</p>
+
+    <p class="alert alert-secondary p-2">
+        ⚠️TIP: You can define the control with just the initial value, but if your controls need sync or async
+        validation, add sync and async validators as the second and third items in the array.
+    </p>
+
+    <p>Compare using the form builder to creating the instances manually.</p>
+
+    <div class="d-flex justify-content-around w-50">
+        <mat-card class="shadow code">
+            <pre>{{code12}}</pre>
+        </mat-card>
+        <mat-card class="shadow code">
+            <pre>{{code13}}</pre>
+        </mat-card>
+    </div>
+
+    <h2 class="fw-bold title">Validiting a form input</h2>
+    <div class="bg-dark p-2 mt-3 text-white">
+        <form [formGroup]="profileForm1" class="w-75">
+            <label for="street">FistName: </label><br>
+            <input class="form-control shadow-none border-black" type="text" formControlName="firstName">
+            <div formGroupName="address" class="mt-3">
+                <h2 class="text-secondary m-0">Adresse</h2>
+                <label for="street">Street: </label><br>
+                <input class="form-control shadow-none border-black" id="street" type="text" formControlName="street">
+            </div>
+            <p class="mt-2">Form Status: {{ profileForm1.status }}</p>
+            <p>{{formValue}}</p>
+            <button class="btn fs-5 btn-light mt-2" type="button" (click)="submit()">Submit</button>
+        </form>
+    </div>
+    <p class="mt-3">
+        Reactive forms include a set of validator functions for common use cases. These functions receive a control to
+        validate against and return an error object or a null value based on the validation check. Import the Validators
+        class from the &#64;angular/forms package. <br>
+        <strong>{{code18}}</strong> <br><br>
+        When you add a required field to the form control, its initial status is invalid. This invalid status propagates
+        to the parent form group element, making its status invalid. Access the current status of the form group
+        instance through its status property. Display the current status of profileForm using interpolation. <br>
+        <strong>{{code17}}</strong>
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code15}}</pre>
+    </mat-card>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code16}}</pre>
+    </mat-card>
+
+    <h2 class="fw-bold title">Creating dynamic forms</h2>
+    <p><strong class="text-decoration-underline">FormArray</strong> is an alternative to <strong
+            class="text-decoration-underline">FormGroup</strong> for managing any number of unnamed controls. As with
+        form group instances, you can dynamically insert and remove controls from form array instances, and the form
+        array instance value and validation status is calculated from its child controls. However, you don't need to
+        define a key for each control by name, so this is a great option if you don't know the number of child values in
+        advance.
+        <br><br>
+        To define a dynamic form, take the following steps.
+        <br><br>
+        1.Import the <strong class="text-decoration-underline">FormArray</strong> class. <br>
+        2.Define a <strong class="text-decoration-underline">FormArray</strong> control. <br>
+        3.Access the <strong class="text-decoration-underline">FormArray</strong> control with a getter method. <br>
+        4.Display the form array in a template. <br><br>
+        The following example shows you how to manage an array of aliases in ProfileEditor.
+    </p>
+
+    <div class="bg-dark p-2 mt-3 text-white">
+        <form [formGroup]="profileForm2" class="w-75">
+            <label for="street">FistName: </label><br>
+            <input class="form-control shadow-none border-black" type="text" formControlName="firstName">
+            <div formGroupName="address" class="mt-3">
+                <h2 class="text-secondary m-0">Adresse</h2>
+                <label for="street">Street: </label><br>
+                <input class="form-control shadow-none border-black" id="street" type="text" formControlName="street">
+            </div>
+            <div formArrayName="aliases">
+                <h2>Aliases</h2>
+                <button type="button" (click)="addAlias()">+ Add another alias</button>
+
+                <div *ngFor="let alias of aliases.controls; let i=index" class="mt-2">
+                    <!-- The repeated alias template -->
+                    <label for="alias-{{ i }}">Alias:</label>
+                    <input id="alias-{{ i }}" type="text" [formControlName]="i">
+                </div>
+
+                <p class="mt-2">Form Status: {{ profileForm2.status }}</p>
+                <p>{{formValue1}}</p>
+                <button class="btn fs-5 btn-light mt-2" type="button" (click)="submit1()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <mat-card class="shadow code mt-3">
+        <pre>{{code19}}</pre>
+    </mat-card>
+    <mat-card class="shadow code mt-3">
+        <pre>{{code20}}</pre>
+    </mat-card>
+
+    <h2 class="fw-bold title">Reactive forms API summary</h2>
+    <p>The following table lists the base classes and services used to create and manage reactive form controls. For
+        complete syntax details, see the API reference documentation for the Forms package.</p>
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">class</p>
+    <table class="table table-bordered border-black">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AbstractControl</td>
+                <td>The abstract base class for the concrete form control classes <strong
+                        class="text-decoration-underline">FormControl</strong> , <strong
+                        class="text-decoration-underline">FormGroup</strong>, and <strong
+                        class="text-decoration-underline">FromArray</strong>. It provides their common behaviors and
+                    propertie</td>
+            </tr>
+            <tr>
+                <td>FromControl</td>
+                <td>Manages the value and validity status of an individual form control. It corresponds to an HTML form
+                    control such as <strong class="text-decoration-underline">&#60;input&#62;</strong> or <strong
+                        class="text-decoration-underline">&#60;select&#62;</strong>.</td>
+            </tr>
+            <tr>
+                <td>FromGroup</td>
+                <td>Manages the value and validity state of a group of <strong
+                        class="text-decoration-underline">AbstractControl</strong> instances. The group's properties
+                    include its child controls. The top-level form in your component is FormGroup</td>
+            </tr>
+            <tr>
+                <td>FromArray</td>
+                <td>Manages the value and validity state of a numerically indexed array of <strong
+                        class="text-decoration-underline">AbstractControl</strong> instances.</td>
+            </tr>
+            <tr>
+                <td>FromBuilder</td>
+                <td>An injectable service that provides factory methods for creating control instances.</td>
+            </tr>
+            <tr>
+                <td>FromRecord</td>
+                <td>Tracks the value and validity state of a collection of <strong
+                        class="text-decoration-underline">FormControl</strong> instances, each of which has the same
+                    value type.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Directive</p>
+    <table class="table table-bordered border-black">
+        <thead>
+            <tr>
+                <th>Directive</th>
+                <th>details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>FormControlDirective</td>
+                <td>Syncs a standalone <strong class="text-decoration-underline">FormControl</strong> instance to a form
+                    control element.</td>
+            </tr>
+            <tr>
+                <td>FormControlName</td>
+                <td>Syncs <strong class="text-decoration-underline">FormControl</strong> in an existing FormGroup
+                    instance to a form control element by name.</td>
+            </tr>
+            <tr>
+                <td>FormGroupDirective</td>
+                <td>Syncs an existing <strong class="text-decoration-underline">FormGroup</strong> instance to a DOM
+                    element.</td>
+            </tr>
+            <tr>
+                <td>FormGroupName</td>
+                <td>Syncs a nested <strong class="text-decoration-underline">FormGroup</strong> instance to a DOM
+                    element.</td>
+            </tr>
+            <tr>
+                <td>FormArrayName</td>
+                <td>Syncs a nested <strong class="text-decoration-underline">FormArray</strong> instance to a DOM
+                    element.</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

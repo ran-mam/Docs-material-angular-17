@@ -1,0 +1,658 @@
+<div class="mt-4 align-items-end">
+   <div class="width-600 lh-text">
+      The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar. It
+      is made up of several components, directives and the date implementation that work together.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker Basic</p>
+   <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Connecting a datepicker to an input</h3>
+      A datepicker is composed of a text input and a calendar pop-up, connected via the matDatepicker property on the
+      text input. <br><br>
+      There is also an optional datepicker toggle button that gives the user an easy way to open the datepicker pop-up.
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      This works exactly the same with an input that is part of an < mat-form-field> and the toggle can easily be used
+         as a prefix or suffix on the Material input:
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      If you want to customize the icon that is rendered inside the mat-datepicker-toggle, you can do so by using the
+      matDatepickerToggleIcon directive:
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker with custom icon</p>
+
+   <mat-form-field class="example-full-width">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+         <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Date range selection</h3>
+      If you want your users to select a range of dates, instead of a single date, you can use the mat-date-range-input
+      and mat-date-range-picker components. They work in tandem, similarly to the mat-datepicker and the basic
+      datepicker input. <br><br>
+      The mat-date-range-input component requires two input elements for the start and end dates, respectively:
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      The mat-date-range-picker component acts as the pop-up panel for selecting dates. This works in the same way as
+      mat-datepicker, but allows the user to select multiple times:
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      Connect the range picker and range input using the rangePicker property:
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic date range picker</p>
+
+   <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker5">
+         <input matStartDate placeholder="Start date">
+         <input matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker5"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker5></mat-date-range-picker>
+   </mat-form-field>
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Date range input forms integration</h3>
+      The mat-date-range-input component can be used together with the FormGroup directive from &#64;angular/forms to
+      group
+      the start and end values together and to validate them as a group.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5"> Date range input forms integration icon</p>
+
+   <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range7" [rangePicker]="picker7">
+         <input matStartDate formControlName="start" placeholder="Start date">
+         <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker7"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker7></mat-date-range-picker>
+
+      @if (range7.controls.start7.hasError('matStartDateInvalid')) {
+      <mat-error>Invalid start date</mat-error>
+      }
+      @if (range7.controls.end7.hasError('matEndDateInvalid')) {
+      <mat-error>Invalid end date</mat-error>
+      }
+   </mat-form-field>
+
+   <p>Selected range: {{range7.value | json}}</p>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code7}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code8}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Setting the calendar starting view</h3>
+      The startView property of < mat-datepicker> can be used to set the view that will show up when the calendar first
+         opens. It can be set to month, year, or multi-year; by default it will open to month view. <br><br>
+
+         The month, year, or range of years that the calendar opens to is determined by first checking if any date is
+         currently selected, if so it will open to the month or year containing that date. Otherwise it will open to the
+         month or year containing today's date. This behavior can be overridden by using the startAt property of <
+            mat-datepicker>. In this case the calendar will open to the month or year containing the startAt date.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker start date</p>
+
+   <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker9">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker9"></mat-datepicker-toggle>
+      <mat-datepicker #picker9 startView="year" [startAt]="startDate9"></mat-datepicker>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code9}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section10HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code10}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Watching the views for changes on selected years and months</h3>
+      When a year or a month is selected in multi-year and year views respectively, the yearSelected and monthSelected
+      outputs emit a normalized date representing the chosen year or month. By "normalized" we mean that the dates
+      representing years will have their month set to January and their day set to the 1st. Dates representing months
+      will have their day set to the 1st of the month. For example, if < mat-datepicker> is configured to work with
+         javascript native Date objects, the yearSelected will emit new Date(2017, 0, 1) if the user selects 2017 in
+         multi-year view. Similarly, monthSelected will emit new Date(2017, 1, 1) if the user selects February in year
+         view and the current date value of the connected <input> was set to something like new Date(2017, MM, dd) when
+         the calendar was opened (the month and day are irrelevant in this case). <br><br>
+
+         Notice that the emitted value does not affect the current value in the connected < input>, which is only bound
+            to the selection made in the month view. So if the end user closes the calendar after choosing a year in
+            multi-view mode (by pressing the ESC key, for example), the selected year, emitted by yearSelected output,
+            will not cause any change in the value of the date in the associated < input>. <br><br>
+
+               The following example uses yearSelected and monthSelected outputs to emulate a month and year picker (if
+               you're not familiar with the usage of MomentDateAdapter and MAT_DATE_FORMATS you can read more about them
+               below in this document to fully understand the example).
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker emulating a Year and month picker</p>
+   <mat-form-field>
+      <mat-label>Month and Year</mat-label>
+      <input matInput [matDatepicker]="dp11" [formControl]="date11">
+      <mat-hint>MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="dp11"></mat-datepicker-toggle>
+      <mat-datepicker #dp11 startView="multi-year" (monthSelected)="setMonthAndYear11($event, dp11)"
+         panelClass="example-month-picker">
+      </mat-datepicker>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section11HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section11ContentId" aria-expanded="true" aria-controls="section11ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section11ContentId" class="collapse in" role="tabpanel" aria-labelledby="section11HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code11}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section12HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section12ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section12HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code12}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Setting the selected date</h3>
+      The type of values that the datepicker expects depends on the type of DateAdapter provided in your application.
+      The NativeDateAdapter, for example, works directly with plain JavaScript Date objects. When using the
+      MomentDateAdapter, however, the values will all be Moment.js instances. This use of the adapter pattern allows the
+      datepicker component to work with any arbitrary date representation with a custom DateAdapter. See Choosing a date
+      implementation for more information. <br><br>
+
+      Depending on the DateAdapter being used, the datepicker may automatically deserialize certain date formats for you
+      as well. For example, both the NativeDateAdapter and MomentDateAdapter allow ISO 8601 strings to be passed to the
+      datepicker and automatically converted to the proper object type. This can be convenient when binding data
+      directly from your backend to the datepicker. However, the datepicker will not accept date strings formatted in
+      user format such as "1/2/2017" as this is ambiguous and will mean different things depending on the locale of the
+      browser running the code. <br><br>
+
+      As with other types of < input>, the datepicker works with &#64;angular/forms directives such as formGroup,
+         formControl, ngModel, etc.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker selected value</p>
+   <mat-form-field>
+      <mat-label>Angular forms</mat-label>
+      <input matInput [matDatepicker]="picker13" [formControl]="date13">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker13"></mat-datepicker-toggle>
+      <mat-datepicker #picker13></mat-datepicker>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-label>Angular forms (w/ deserialization)</mat-label>
+      <input matInput [matDatepicker]="picker14" [formControl]="serializedDate13">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker14"></mat-datepicker-toggle>
+      <mat-datepicker #picker14></mat-datepicker>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-label>Value binding</mat-label>
+      <input matInput [matDatepicker]="picker15" [value]="date13.value">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker15"></mat-datepicker-toggle>
+      <mat-datepicker #picker15></mat-datepicker>
+   </mat-form-field>
+</div>
+
+<div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section13HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section13ContentId" aria-expanded="true" aria-controls="section13ContentId">
+               component
+            </a>
+         </h5>
+      </div>
+      <div id="section13ContentId" class="collapse in" role="tabpanel" aria-labelledby="section13HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+                  {{code13}}
+               </pre>
+         </div>
+      </div>
+   </div>
+   <div class="card width-600">
+      <div class="card-header" role="tab" id="section14HeaderId">
+         <h5 class="mb-0">
+            <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+               href="#section14ContentId" aria-expanded="true" aria-controls="section12ContentId">
+               HTML
+            </a>
+         </h5>
+      </div>
+      <div id="section14ContentId" class="collapse in" role="tabpanel" aria-labelledby="section14HeaderId">
+         <div class="card-body">
+            <pre class="pt-4">
+                  {{code14}}
+               </pre>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Changing the datepicker colors</h3>
+      The datepicker popup will automatically inherit the color palette (primary, accent, or warn) from the
+      mat-form-field it is attached to. If you would like to specify a different palette for the popup you can do so by
+      setting the color property on mat-datepicker.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker palette colors</p>
+   <mat-form-field color="accent">
+      <mat-label>Inherited calendar color</mat-label>
+      <input matInput [matDatepicker]="picker1">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+   </mat-form-field>
+
+   <mat-form-field color="accent">
+      <mat-label>Custom calendar color</mat-label>
+      <input matInput [matDatepicker]="picker2">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 color="primary"></mat-datepicker>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section15HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section15ContentId" aria-expanded="true" aria-controls="section15ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section15ContentId" class="collapse in" role="tabpanel" aria-labelledby="section15HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code15}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section16HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section16ContentId" aria-expanded="true" aria-controls="section16ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section16ContentId" class="collapse in" role="tabpanel" aria-labelledby="section16HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code16}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Date validation</h3>
+      There are three properties that add date validation to the datepicker input. The first two are the min and max
+      properties. In addition to enforcing validation on the input, these properties will disable all dates on the
+      calendar popup before or after the respective values and prevent the user from advancing the calendar past the
+      month or year (depending on current view) containing the min or max date.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker palette colors</p>
+   <mat-form-field class="example-full-width">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [min]="minDate17" [max]="maxDate17" [matDatepicker]="picker17">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker17"></mat-datepicker-toggle>
+      <mat-datepicker #picker17></mat-datepicker>
+   </mat-form-field>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section17HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section17ContentId" aria-expanded="true" aria-controls="section17ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section17ContentId" class="collapse in" role="tabpanel" aria-labelledby="section17HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code17}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section18HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section18ContentId" aria-expanded="true" aria-controls="section18ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section18ContentId" class="collapse in" role="tabpanel" aria-labelledby="section18HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code18}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Date validation</h3>
+      There are three properties that add date validation to the datepicker input. The first two are the min and max
+      properties. <br> In addition to enforcing validation on the input, these properties will disable all dates on the
+      calendar popup before or after the respective values and prevent the user from advancing the calendar past the
+      month or year (depending on current view) containing the min or max date.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Datepicker palette colors</p>
+   <div class="card p-2">
+
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section19HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section19ContentId" aria-expanded="true" aria-controls="section19ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section19ContentId" class="collapse in" role="tabpanel" aria-labelledby="section19HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code19}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section20HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section20ContentId" aria-expanded="true" aria-controls="section20ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section20ContentId" class="collapse in" role="tabpanel" aria-labelledby="section20HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code20}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      In this example the user cannot select any date that falls on a Saturday or Sunday, but all of the dates which
+      fall on other days of the week are selectable. <br>
+
+      Each validation property has a different error that can be checked:
+      <ul class="note">
+         <li>A value that violates the min property will have a matDatepickerMin error.</li>
+         <li>A value that violates the max property will have a matDatepickerMax error.</li>
+         <li>A value that violates the matDatepickerFilter property will have a matDatepickerFilter error.</li>
+      </ul>
+   </div>
+
+</div>

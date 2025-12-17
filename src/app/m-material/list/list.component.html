@@ -1,0 +1,282 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600  lh-text mt-4">
+      &lt;mat-list> is a container component that wraps and formats a series of &lt;mat-list-item>. As the base list
+            component, it provides Material Design styling, but no behavior of its own.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Grid List</p>
+   <div class="card p-2">
+      <mat-list role="list">
+         <mat-list-item role="listitem">Item 1</mat-list-item>
+         <mat-list-item role="listitem">Item 2</mat-list-item>
+         <mat-list-item role="listitem">Item 3</mat-list-item>
+      </mat-list>
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      List items can be constructed in two ways depending the content they need to show: <br>
+      <h3 class="fw-bold mt-4">Simple lists</h3>
+
+      If a list item needs to show a single line of textual information, the text can be inserted directly into the &lt;mat-list-item> element.
+   </div>
+
+   <div class="card p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Multi-line lists</h3>
+      List items that have more than one line of text have to use the matListItemTitle directive to indicate their title
+      text for accessibility purposes, in addition to the matListItemLine directive for each subsequent line of text.
+   </div>
+
+
+   <div class="card p-2 width-600">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      To activate text wrapping, the lines input has to be set on the &lt;mat-list-item> indicating the number of lines of
+         text. <br><br>
+
+         The following directives can be used to style the content of a list item:
+   </div>
+
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Directive</th>
+            <th>Description</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td scope="row">matListItemTitle</td>
+            <td>Indicates the title of the list item. Required for multi-line list items.</td>
+         </tr>
+         <tr>
+            <td scope="row">matListItemLine</td>
+            <td>Wraps a line of text within a list item.</td>
+         </tr>
+         <tr>
+            <td scope="row">matListItemIcon</td>
+            <td>Icon typically placed at the beginning of a list item.</td>
+         </tr>
+         <tr>
+            <td scope="row">matListItemAvatar</td>
+            <td>Image typically placed at the beginning of a list item.</td>
+         </tr>
+         <tr>
+            <td scope="row">matListItemMeta</td>
+            <td>Inserts content in the meta section at the end of a list item.</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Navigation lists</h3>
+      Use mat-nav-list tags for navigation lists (i.e. lists that have anchor tags). <br><br>
+
+      Simple navigation lists can use the mat-list-item attribute on anchor tag elements directly:
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      For more complex navigation lists (e.g. with more than one target per item), wrap the anchor element in an &lt;mat-list-item>.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Action lists</h3>
+      Use the &lt;mat-action-list> element when each item in the list performs some action. Each item in an action list is
+         a &lt;button> element. <br><br>
+
+            Simple action lists can use the mat-list-item attribute on button tag elements directly:
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Selection lists</h3>
+      A selection list provides an interface for selecting values, where each list item is an option.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Grid List</p>
+   <div class="card p-2">
+      <mat-selection-list #shoes>
+         @for (shoe of typesOfShoes; track shoe) {
+         <mat-list-option>{{shoe}}</mat-list-option>
+         }
+      </mat-selection-list>
+
+      <p>
+         Options selected: {{shoes.selectedOptions.selected.length}}
+      </p>
+   </div>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      The options within a selection-list should not contain further interactive controls, such as buttons and anchors.
+      <br>
+      <h3 class="fw-bold">Multi-line lists</h3>
+      For lists that require multiple lines per item, annotate each line with an matListItemLine attribute. Whichever
+      heading tag is appropriate for your DOM hierarchy should be used (not necessarily &lt;h3> as shown in the example).
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c6}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Lists with icons</h3>
+      To add an icon to your list item, use the matListItemIcon attribute.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c7}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Lists with avatars</h3>
+      To include an avatar image, add an image tag with an matListItemAvatar attribute.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c8}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold"> Lists with multiple sections</h3>
+      Subheaders can be added to a list by annotating a heading tag with an matSubheader attribute. To add a divider,
+      use &lt;mat-divider>.
+   </div>
+
+   <div class="card p-2 width-600">
+      <pre>{{c9}}</pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Accessibility</h3>
+      Angular Material offers multiple varieties of list so that you can choose the type that best applies to your
+      use-case.
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Navigation</h3>
+      You should use MatNavList when every item in the list is an anchor that navigate to another URL. The root &lt;mat-nav-list> element sets role="navigation" and should contain only anchor elements with the mat-list-item
+         attribute. You should not nest any interactive elements inside these anchors, including buttons and checkboxes.
+         <br><br>
+
+         Always provide an accessible label for the &lt;mat-nav-list> element via aria-label or aria-labelledby.
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Selection</h3>
+      You should use MatSelectionList and MatListOption for lists that allow the user to select one or more values. This
+      list variant uses the role="listbox" interaction pattern, handling all associated keyboard input and focus
+      management. You should not nest any interactive elements inside these options, including buttons and anchors.
+      <br><br>
+
+      Always provide an accessible label for the &lt;mat-selection-list> element via aria-label or aria-labelledby that
+         describes the selection being made. <br><br>
+
+         By default, MatSelectionList displays radio or checkmark indicators to identify selected items. While you can
+         hide the radio indicator for single-selection via hideSingleSelectionIndicator, this makes the component less
+         accessible by making it harder or impossible for users to visually identify selected items.
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Custom scenarios</h3>
+      By default, the list assumes that it will be used in a purely decorative fashion and thus it sets no roles, ARIA
+      attributes, or keyboard shortcuts. This is equivalent to having a sequence of <div> elements on the page. Any
+         interactive content within the list should be given an appropriate accessibility treatment based on the
+         specific workflow of your application. <br><br>
+
+         If the list is used to present a list of non-interactive content items, then the list element should be given
+         role="list" and each list item should be given role="listitem".
+      </div>
+
+   </div>
+</div>
+

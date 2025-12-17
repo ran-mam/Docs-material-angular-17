@@ -1,0 +1,82 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      &lt;mat-paginator> provides navigation for paged information, typically used with a table.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Paginator</p>
+   <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+   </mat-paginator>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Basic use</h3>
+      Each paginator instance requires:
+      <ul class="note">
+         <li>The number of items per page (default set to 50)</li>
+         <li>The total number of items being paged</li>
+      </ul>
+      The current page index defaults to 0, but can be explicitly set via pageIndex.
+
+      When the user interacts with the paginator, a PageEvent will be fired that can be used to update any associated
+      data view.
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Internationalization</h3>
+      The labels for the paginator can be customized by providing your own instance of MatPaginatorIntl. This will allow
+      you to change the following:
+      <ul>
+         <li>The label for the length of each page.</li>
+         The range text displayed to the user.
+         <li></li>
+         The tooltip messages on the navigation buttons.
+         <li></li>
+      </ul>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accessibility</h3>
+      The paginator uses role="group" to semantically group its child controls. You must add an aria-label or
+      aria-labelledby attribute to &lt;mat-paginator> with a label that describes the content controlled by the
+      pagination control.
+
+      You can set the aria-label attributes for the button and select controls within the paginator in MatPaginatorIntl
+   </div>
+
+</div>

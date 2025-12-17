@@ -1,0 +1,670 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      Angular Material provides two sets of components designed to add collapsible side content (often navigation,
+      though it can be any content) alongside some primary content. These are the sidenav and drawer components.
+      <br><br>
+
+      The sidenav components are designed to add side content to a fullscreen app. To set up a sidenav we use three
+      components: &lt;mat-sidenav-container> which acts as a structural container for our content and sidenav,
+      &lt;mat-sidenav-content> which represents the main content, and &lt;mat-sidenav> which represents the added side
+      content.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Sidenav</p>
+
+   @if (shouldRun1) {
+   <mat-sidenav-container class="example-container">
+      <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+      <mat-sidenav-content>Main content</mat-sidenav-content>
+   </mat-sidenav-container>
+   } @else {
+   <div>Please open on Stackblitz to see result</div>
+   }
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600">
+      The drawer component is designed to add side content to a small section of your app. This is accomplished using
+      the &lt;mat-drawer-container>, &lt;mat-drawer-content>, and &lt;mat-drawer> components, which are analogous to
+      their sidenav equivalents. Rather than adding side content to the app as a whole, these are designed to add side
+      content to a small section of your app. They support almost all of the same features, but do not support fixed
+      positioning.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Drawer</p>
+   <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+      <mat-drawer-content>Main content</mat-drawer-content>
+   </mat-drawer-container>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header " role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code3}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section4HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code4}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Specifying the main and side content</h3>
+      Both the main and side content should be placed inside of the &lt;mat-sidenav-container>, content that you don't
+      want to be affected by the sidenav, such as a header or footer, can be placed outside of the container. <br><br>
+
+      The side content should be wrapped in a &lt;mat-sidenav> element. The position property can be used to specify
+      which end of the main content to place the side content on. position can be either start or end which places the
+      side content on the left or right respectively in left-to-right languages. If the position is not set, the default
+      value of start will be assumed. A &lt;mat-sidenav-container> can have up to two &lt;mat-sidenav> elements total,
+      but only one for any given side. The &lt;mat-sidenav> must be placed as an immediate child of the
+      &lt;mat-sidenav-container>. <br><br>
+
+      The main content should be wrapped in a &lt;mat-sidenav-content>. If no &lt;mat-sidenav-content> is specified for
+      a &lt;mat-sidenav-container>, one will be created implicitly and all of the content inside the
+      &lt;mat-sidenav-container> other than the &lt;mat-sidenav> elements will be placed inside of it.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Implicit main content with two sidenavs</p>
+   @if (shouldRun5) {
+   <mat-sidenav-container class="example-container">
+      <mat-sidenav opened mode="side">Start content</mat-sidenav>
+      <mat-sidenav opened mode="side" position="end">End content</mat-sidenav>
+      Implicit main content
+   </mat-sidenav-container>
+   } @else {
+   <div>Please open on Stackblitz to see result</div>
+   }
+
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section5ContentId" aria-expanded="true" aria-controls="section5ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section5ContentId" class="collapse in" role="tabpanel" aria-labelledby="section5HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code5}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code6}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width600 lh-text">
+      The following are examples of valid sidenav layouts:
+   </div>
+
+   <div class="width-600 p-2 card mb-2 mt-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <div class="width-600 p-2 card mb-2 mt-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 p-2 card mb-2 mt-2">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="width600 lh-text">
+      And these are examples of invalid sidenav layouts:
+   </div>
+
+   <div class="width-600 p-2 card mb-2 mt-2">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 p-2 card mb-2 mt-2">
+      <pre>{{c5}}</pre>
+   </div>
+
+   <div class="width-600 p-2 card mb-2 mt-2">
+      <pre>{{c6}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      These same rules all apply to the drawer components as well.
+
+      Opening and closing a sidenav
+      A &lt;mat-sidenav> can be opened or closed using the open(), close() and toggle() methods. Each of these methods
+      returns a Promise&lt;boolean> that will be resolved with true when the sidenav finishes opening or false when it
+      finishes closing. <br><br>
+
+      The opened state can also be set via a property binding in the template using the opened property. The property
+      supports 2-way binding. <br><br>
+
+      &lt;mat-sidenav> also supports output properties for just open and just close events, The (opened) and (closed)
+      properties respectively.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Sidenav open & close behavior</p>
+   @if (shouldRun7) {
+   <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav mode="side" [(opened)]="opened7" (opened)="events7.push('open!')"
+         (closed)="events7.push('close!')">
+         Sidenav content
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+         <p><mat-checkbox [(ngModel)]="opened7">sidenav.opened</mat-checkbox></p>
+         <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+         <p>Events:</p>
+         <div class="example-events">
+            @for (e of events7; track e) {
+            <div>{{e}}</div>
+            }
+         </div>
+      </mat-sidenav-content>
+   </mat-sidenav-container>
+   } @else {
+   <div>Please open on Stackblitz to see result</div>
+   }
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section7HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section7ContentId" aria-expanded="true" aria-controls="section7ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section7ContentId" class="collapse in" role="tabpanel" aria-labelledby="section7HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code7}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section8HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section8ContentId" aria-expanded="true" aria-controls="section8ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section8ContentId" class="collapse in" role="tabpanel" aria-labelledby="section8HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code8}}
+               </pre>
+            </div>
+         </div>
+      </div>
+
+      <div class="width-600 lh-text">
+         All of these properties and methods work on &lt;mat-drawer> as well. <br><br>
+
+         Changing the sidenav's behavior
+         The &lt;mat-sidenav> can render in one of three different ways based on the mode property.
+
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>Mode</th>
+                  <th>Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td scope="row">over</td>
+                  <td>Sidenav floats over the primary content, which is covered by a backdrop</td>
+               </tr>
+               <tr>
+                  <td scope="row">push</td>
+                  <td>Sidenav pushes the primary content out of its way, also covering it with a backdrop</td>
+               </tr>
+               <tr>
+                  <td scope="row">side</td>
+                  <td>Sidenav appears side-by-side with the main content, shrinking the main content's width to make
+                     space for the sidenav.</td>
+               </tr>
+            </tbody>
+         </table>
+
+         If no mode is specified, over is used by default.
+      </div>
+
+      <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Sidenav with configurable mode</p>
+
+      @if (shouldRun9) {
+      <mat-sidenav-container class="example-container">
+         <mat-sidenav #sidenav [mode]="mode9.value || 'over'">
+            <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+            <p>
+               <mat-radio-group class="example-radio-group" [formControl]="mode9">
+                  <label>Mode:</label>
+                  <mat-radio-button value="over">Over</mat-radio-button>
+                  <mat-radio-button value="side">Side</mat-radio-button>
+                  <mat-radio-button value="push">Push</mat-radio-button>
+               </mat-radio-group>
+            </p>
+         </mat-sidenav>
+
+         <mat-sidenav-content>
+            <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+            <p>
+               <mat-radio-group class="example-radio-group" [formControl]="mode9">
+                  <label>Mode:</label>
+                  <mat-radio-button value="over">Over</mat-radio-button>
+                  <mat-radio-button value="side">Side</mat-radio-button>
+                  <mat-radio-button value="push">Push</mat-radio-button>
+               </mat-radio-group>
+            </p>
+         </mat-sidenav-content>
+      </mat-sidenav-container>
+      } @else {
+      <div>Please open on Stackblitz to see result</div>
+      }
+
+      <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section7HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section9ContentId" aria-expanded="true" aria-controls="section9ContentId">
+                     component
+                  </a>
+               </h5>
+            </div>
+            <div id="section9ContentId" class="collapse in" role="tabpanel" aria-labelledby="section9HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code9}}
+               </pre>
+               </div>
+            </div>
+         </div>
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section10HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section10ContentId" aria-expanded="true" aria-controls="section10ContentId">
+                     HTML
+                  </a>
+               </h5>
+            </div>
+            <div id="section10ContentId" class="collapse in" role="tabpanel" aria-labelledby="section10HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code10}}
+               </pre>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="width-600 lh-text">The over and push sidenav modes show a backdrop by default, while the side mode
+         does not. This can be customized by setting the hasBackdrop property on mat-sidenav-container. Explicitly
+         setting hasBackdrop to true or false will override the default backdrop visibility setting for all sidenavs
+         regardless of mode. Leaving the property unset or setting it to null will use the default backdrop visibility
+         for each mode.</div>
+
+      <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Drawer with explicit backdrop setting</p>
+      <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+         <mat-drawer #drawer11 [mode]="mode.value">I'm a drawer</mat-drawer>
+         <mat-drawer-content>
+            <mat-form-field>
+               <mat-label>Sidenav mode</mat-label>
+               <mat-select #mode value="side">
+                  <mat-option value="side">Side</mat-option>
+                  <mat-option value="over">Over</mat-option>
+                  <mat-option value="push">Push</mat-option>
+               </mat-select>
+            </mat-form-field> <br>
+            <mat-form-field>
+               <mat-label>Has backdrop</mat-label>
+               <mat-select #hasBackdrop>
+                  <mat-option>Unset</mat-option>
+                  <mat-option [value]="true">True</mat-option>
+                  <mat-option [value]="false">False</mat-option>
+               </mat-select>
+            </mat-form-field> <br>
+            <button mat-raised-button (click)="drawer11.toggle()">Toggle drawer</button>
+         </mat-drawer-content>
+      </mat-drawer-container>
+
+      <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section11HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section11ContentId" aria-expanded="true" aria-controls="section11ContentId">
+                     component
+                  </a>
+               </h5>
+            </div>
+            <div id="section11ContentId" class="collapse in" role="tabpanel" aria-labelledby="section11HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code11}}
+               </pre>
+               </div>
+            </div>
+         </div>
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section12HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section12ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                     HTML
+                  </a>
+               </h5>
+            </div>
+            <div id="section12ContentId" class="collapse in" role="tabpanel" aria-labelledby="section12HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code12}}
+               </pre>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="width-600 lh-text">
+         &lt;mat-drawer> also supports all of these same modes and options. <br><br>
+
+         <h3 class="fw-bold">Disabling automatic close</h3>
+         Clicking on the backdrop or pressing the Esc key will normally close an open sidenav. However, this automatic
+         closing behavior can be disabled by setting the disableClose property on the &lt;mat-sidenav> or
+         &lt;mat-drawer> that you want to disable the behavior for. <br><br>
+
+         Custom handling for Esc can be done by adding a keydown listener to the &lt;mat-sidenav>. Custom handling for
+         backdrop clicks can be done via the (backdropClick) output property on &lt;mat-sidenav-container>.
+      </div>
+
+      <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Sidenav with custom escape and backdrop click behavior
+      </p>
+      @if (shouldRun13) {
+      <mat-sidenav-container class="example-container" (backdropClick)="close13('backdrop')">
+         <mat-sidenav #sidenav13 (keydown.escape)="close13('escape')" disableClose>
+            <p><button mat-button (click)="close13('toggle button')">Toggle</button></p>
+         </mat-sidenav>
+
+         <mat-sidenav-content>
+            <p><button mat-button (click)="sidenav13.open()">Open</button></p>
+            <p>Closed due to: {{reason13}}</p>
+         </mat-sidenav-content>
+      </mat-sidenav-container>
+      } @else {
+      <div>Please open on Stackblitz to see result</div>
+      }
+
+
+      <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section13HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section13ContentId" aria-expanded="true" aria-controls="section13ContentId">
+                     component
+                  </a>
+               </h5>
+            </div>
+            <div id="section13ContentId" class="collapse in" role="tabpanel" aria-labelledby="section13HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code13}}
+               </pre>
+               </div>
+            </div>
+         </div>
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section14HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section14ContentId" aria-expanded="true" aria-controls="section12ContentId">
+                     HTML
+                  </a>
+               </h5>
+            </div>
+            <div id="section14ContentId" class="collapse in" role="tabpanel" aria-labelledby="section14HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code14}}
+               </pre>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="width-600 lh-text">
+         <h3 class="fw-bold">Resizing an open sidenav</h3>
+         By default, Material will only measure and resize the drawer container in a few key moments (on open, on window
+         resize, on mode change) in order to avoid layout thrashing, however there are cases where this can be
+         problematic. If your app requires for a drawer to change its width while it is open, you can use the autosize
+         option to tell Material to continue measuring it. Note that you should use this option at your own risk,
+         because it could cause performance issues.
+      </div>
+
+      <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Autosize sidenav</p>
+      <mat-drawer-container class="example-container" autosize>
+         <mat-drawer #drawer class="example-sidenav" mode="side">
+            <p>Auto-resizing sidenav</p>
+            @if (showFiller15) {
+            <p>Lorem, ipsum dolor sit amet consectetur.</p>
+            }
+            <button (click)="showFiller15 = !showFiller15" mat-raised-button>
+               Toggle extra text
+            </button>
+         </mat-drawer>
+
+         <div class="example-sidenav-content">
+            <button type="button" mat-button (click)="drawer.toggle()">
+               Toggle sidenav
+            </button>
+         </div>
+
+      </mat-drawer-container>
+
+      <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section15HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section15ContentId" aria-expanded="true" aria-controls="section15ContentId">
+                     component
+                  </a>
+               </h5>
+            </div>
+            <div id="section15ContentId" class="collapse in" role="tabpanel" aria-labelledby="section15HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code15}}
+               </pre>
+               </div>
+            </div>
+         </div>
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section16HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section16ContentId" aria-expanded="true" aria-controls="section16ContentId">
+                     HTML
+                  </a>
+               </h5>
+            </div>
+            <div id="section16ContentId" class="collapse in" role="tabpanel" aria-labelledby="section16HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                  {{code16}}
+               </pre>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="width-600 lh-text">
+         <h3 class="fw-bold">Setting the sidenav's size</h3>
+         The &lt;mat-sidenav> and &lt;mat-drawer> will, by default, fit the size of its content. The width can be
+         explicitly set via CSS:
+      </div>
+
+      <div class="card width-600 p-2">
+         <pre>{{c6}}</pre>
+      </div>
+
+      <div class="width-600 lh-text">
+         Try to avoid percent based width as resize events are not (yet) supported.
+         <h3 class="fw-bold mt-4 mb-4">Fixed position sidenavs</h3>
+         For &lt;mat-sidenav> only (not &lt;mat-drawer>) fixed positioning is supported. It can be enabled by setting
+         the fixedInViewport property. Additionally, top and bottom space can be set via the fixedTopGap and
+         fixedBottomGap. These properties accept a pixel value amount of space to add at the top or bottom
+      </div>
+
+      <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Autosize sidenav</p>
+      @if (shouldRun17) {
+      <mat-toolbar class="example-header">Header</mat-toolbar>
+
+      <mat-sidenav-container class="example-container">
+         <mat-sidenav #sidenav17 mode="side" opened class="example-sidenav" [fixedInViewport]="options17.value.fixed"
+            [fixedTopGap]="options17.value.top" [fixedBottomGap]="options17.value.bottom">
+            {{options17.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav
+         </mat-sidenav>
+
+         <mat-sidenav-content [formGroup]="options17">
+            <p><mat-checkbox formControlName="fixed">Fixed</mat-checkbox></p>
+            <p><mat-form-field>
+                  <mat-label>Top gap</mat-label>
+                  <input matInput type="number" formControlName="top">
+               </mat-form-field></p>
+            <p><mat-form-field>
+                  <mat-label>Bottom gap</mat-label>
+                  <input matInput type="number" formControlName="bottom">
+               </mat-form-field></p>
+            <p><button mat-button (click)="sidenav17.toggle()">Toggle</button></p>
+         </mat-sidenav-content>
+      </mat-sidenav-container>
+
+      <mat-toolbar class="example-footer">Footer</mat-toolbar>
+      } @else {
+      <div>Please open on StackBlitz to see result</div>
+      }
+
+      <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section17HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section17ContentId" aria-expanded="true" aria-controls="section17ContentId">
+                     component
+                  </a>
+               </h5>
+            </div>
+            <div id="section17ContentId" class="collapse in" role="tabpanel" aria-labelledby="section17HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                     {{code17}}
+                  </pre>
+               </div>
+            </div>
+         </div>
+         <div class="card width-600">
+            <div class="card-header" role="tab" id="section18HeaderId">
+               <h5 class="mb-0">
+                  <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                     href="#section18ContentId" aria-expanded="true" aria-controls="section18ContentId">
+                     HTML
+                  </a>
+               </h5>
+            </div>
+            <div id="section18ContentId" class="collapse in" role="tabpanel" aria-labelledby="section18HeaderId">
+               <div class="card-body">
+                  <pre class="pt-4">
+                     {{code18}}
+                  </pre>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

@@ -1,0 +1,89 @@
+<div class="mt-4 align-items-end">
+   <div class="width-600 lh-text">
+      mat-grid-list is a two-dimensional list view that arranges cells into grid-based layout. See Material Design
+      spec here
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Bsaic Grid List</p>
+   <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>1</mat-grid-tile>
+      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>3</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+   </mat-grid-list>
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{ code1 }}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="wdth-600 lh-text mt-4">
+      <h3 class="fw-bold">Setting the number of columns</h3>
+      An mat-grid-list must specify a cols attribute which sets the number of columns in the grid. The number of rows
+      will be automatically determined based on the number of columns and the number of items.
+   </div>
+
+   <div class="wdth-600 lh-text mt-4">
+      <h3 class="fw-bold"> Setting the row height</h3>
+      The height of the rows in a grid list can be set via the rowHeight attribute. Row height for the list can be
+      calculated in three ways: <br>
+
+      <ul class="note">
+         <li>Fixed height: The height can be in px, em, or rem. If no units are specified, px units are assumed (e.g.
+            100px, 5em, 250).</li>
+         <li>
+            Ratio: This ratio is column-width:row-height, and must be passed in with a colon, not a decimal (e.g.
+            4:3).</li>
+         <li>Fit: Setting rowHeight to fit This mode automatically divides the available height by the number of
+            rows. Please note the height of the grid-list or its container must be set.</li>
+      </ul>
+      <br>
+
+      If rowHeight is not specified, it defaults to a 1:1 ratio of width:height.
+   </div>
+
+   <div class="wdth-600 lh-text mt-4">
+      <h3 class="fw-bold">Setting the gutter size</h3>
+      The gutter size can be set to any px, em, or rem value with the gutterSize property. If no units are specified, px
+      units are assumed. By default the gutter size is 1px.
+   </div>
+
+   <div class="wdth-600 lh-text mt-4">
+      <h3 class="fw-bold">Adding tiles that span multiple rows or columns</h3>
+      It is possible to set the rowspan and colspan of each mat-grid-tile individually, using the rowspan and colspan
+      properties. If not set, they both default to 1. The colspan must not exceed the number of cols in the
+      mat-grid-list. There is no such restriction on the rowspan however, more rows will simply be added for it the tile
+      to fill.
+   </div>
+
+   <div class="wdth-600 lh-text mt-4">
+      <h3 class="fw-bold">Tile headers and footers</h3>
+      A header and footer can be added to an mat-grid-tile using the mat-grid-tile-header and mat-grid-tile-footer
+      elements respectively.
+   </div>
+
+   <div class="wdth-600 lh-text mt-4">
+      <h3 class="fw-bold">Accessibility</h3>
+      By default, the grid-list assumes that it will be used in a purely decorative fashion and thus sets no roles, ARIA
+      attributes, or keyboard shortcuts. This is equivalent to having a sequence of <div> elements on the page. Any
+         interactive content within the grid-list should be given an appropriate accessibility treatment based on the
+         specific workflow of your application. <br><br>
+         If the grid-list is used to present a list of non-interactive content items, then the grid-list element should
+         be given role="list" and each tile should be given role="listitem".
+      </div>
+   </div>

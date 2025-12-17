@@ -1,0 +1,529 @@
+<div class="container-fluid">
+    <p class="text-center fs-2 text-danger my-4 fw-bolder">Angular coding style guide</p>
+    <h2 class="fw-bold title">Style vocabulary</h2>
+    <p>
+        Each guideline describes either a good or bad practice, and all have a consistent presentation.
+        <br><br>
+        The wording of each guideline indicates how strong the recommendation is.
+        <br><br>
+        <strong>Do</strong> is one that should always be followed. Always might be a bit too strong of a word.
+        Guidelines that literally
+        should always be followed are extremely rare. On the other hand, you need a really unusual case for breaking a
+        Do guideline.
+        <br>
+        <strong>Consider</strong> guidelines should generally be followed. If you fully understand the meaning behind
+        the guideline and
+        have a good reason to deviate, then do so. Aim to be consistent. <br>
+        <strong>Avoid</strong> indicates something you should almost never do. Code examples to avoid have an
+        unmistakable red header.
+        <br>
+        <strong>Why?</strong> Gives reasons for following the previous recommendations.
+    </p>
+
+    <h2 class="fw-bold title">File structure conventions</h2>
+    <p>Some code examples display a file that has one or more similarly named companion files. For example,
+        <strong>hero.component.ts</strong> and <strong>hero.component.html</strong>.
+        <br><br>
+        The guideline uses the shortcut <strong>hero.component.ts|html|css|spec></strong> to represent those various
+        files. Using this
+        shortcut makes this guide's file structures easier to read and more terse.
+    </p>
+
+    <h2 class="fw-bold title">Single responsibility</h2>
+    <p class="bg-primary-subtle py-1 ps-2 mt-4">Rule one</p>
+    <p>
+        <strong>Do</strong> define one thing, such as a service or component, per file.
+        <br>
+        <strong>Consider</strong> limiting files to 400 lines of code.
+        <br>
+        <strong>Why?</strong> One component per file makes it far easier to read, maintain, and avoid collisions with
+        teams in source
+        control.
+        <br>
+        <strong>Why?</strong> One component per file avoids hidden bugs that often arise when combining components in a
+        file where they
+        may share variables, create unwanted closures, or unwanted coupling with dependencies.
+        <br>
+        <strong>Why?</strong> A single component can be the default export for its file which facilitates lazy loading
+        with the router.
+        <br>
+        The key is to make the code more reusable, easier to read, and less mistake-prone.
+        <br><br>
+        The following negative example defines the AppComponent, bootstraps the app, defines the Hero model object, and
+        loads heroes from the server all in the same file. Don't do this.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code1}}</pre>
+    </mat-card>
+    <p>It is a better practice to redistribute the component and its supporting classes into their own, dedicated files.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code2}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code3}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code4}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code5}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code6}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code7}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code8}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Small function</p>
+    <p>
+        <strong>Do</strong> define small functions
+        <br>
+        <strong>Consider</strong> limiting to no more than 75 lines.
+        <br>
+        <strong>Why?</strong> Small functions are easier to test, especially when they do one thing and serve one
+        purpose. br
+        <br>
+        <strong>Why?</strong> Small functions promote reuse.
+        <br>
+        <strong>Why?</strong> Small functions are easier to read.
+        <br>
+        <strong>Why?</strong> Small functions are easier to maintain.
+        <br>
+        <strong>Why?</strong> Small functions help avoid hidden bugs that come with large functions that share variables
+        with external scope, create unwanted closures, or unwanted coupling with dependencies.
+    </p>
+
+    <h2 class="fw-bold title">Naming</h2>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">General Naming Guidelines</p>
+    <p>
+        <strong>Do</strong> use consistent names for all symbols.
+        <br>
+        <strong>Do</strong> follow a pattern that describes the symbol's feature then its type. The recommended pattern
+        is
+        <strong>feature.type.ts.</strong>
+        <br>
+        <strong>Why?</strong> Naming conventions help provide a consistent way to find content at a glance. Consistency
+        within the
+        project is vital. Consistency with a team is important. Consistency across a company provides tremendous
+        efficiency.
+        <br>
+        <strong>Why?</strong> The naming conventions should help find desired code faster and make it easier to
+        understand.
+        <br>
+        <strong>Why?</strong> Names of folders and files should clearly convey their intent. For example,
+        <strong>app/heroes/hero-list.component.ts</strong> may contain a component that manages a list of heroes.
+    </p>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Separate file names with dots and dashes</p>
+    <p>
+        <strong>Do</strong> use dashes to separate words in the descriptive name.
+        <br>
+        <strong>Do</strong> use dots to separate the descriptive name from the type.
+        <br>
+        <strong>Do</strong> use consistent type names for all components following a pattern that describes the
+        component's
+        feature then its type. A recommended pattern is <strong>feature.type.ts.</strong>
+        <br>
+        <strong>Do</strong> use conventional type names including <strong>.service</strong>,
+        <strong>.component</strong>,
+        <strong>.pipe</strong>, <strong>.module</strong>, and <strong>.directive</strong>.
+        Invent additional type names if you must but take care not to create too many.
+        <br>
+        <strong>Why?</strong> Type names provide a consistent way to quickly identify what is in the file.
+        <br>
+        <strong>Why?</strong> Type names make it easy to find a specific file type using an editor or IDE's fuzzy search
+        techniques.
+        <br>
+        <strong>Why?</strong> Unabbreviated type names such as <strong>.service</strong> are descriptive and
+        unambiguous.
+        Abbreviations such
+        <strong>as .srv, .svc,</strong> and <strong>.serv</strong> can be confusing.
+        <br>
+        <strong>Why?</strong> Type names provide pattern matching for any automated tasks.
+    </p>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Symbols and file names</p>
+    <table class="table table-bordered border-black">
+        <thead>
+            <tr>
+                <th>Symbol name</th>
+                <th>File name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{code9}}</td>
+                <td>app.component.ts</td>
+            </tr>
+            <tr>
+                <td>{{code10}}</td>
+                <td>heroes.component.ts</td>
+            </tr>
+            <tr>
+                <td>{{code11}}</td>
+                <td>hero-list.component.ts</td>
+            </tr>
+            <tr>
+                <td>{{code12}}</td>
+                <td>hero-detail.component.ts</td>
+            </tr>
+            <tr>
+                <td>{{code13}}</td>
+                <td>validation.directive.ts</td>
+            </tr>
+            <tr>
+                <td>{{code14}}</td>
+                <td>app.module.ts</td>
+            </tr>
+            <tr>
+                <td>{{code15}}</td>
+                <td>init-caps.pipe.ts</td>
+            </tr>
+            <tr>
+                <td>{{code16}}</td>
+                <td>user-profile.service.ts</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Service names</p>
+    <p><strong>Do</strong> use consistent names for all services named after their feature.
+        <br>
+        <strong>Do</strong> suffix a service class name with <strong>Service</strong>. For example, something that gets
+        data or heroes should be called a
+        <strong>DataService</strong> or a <strong>HeroService</strong>.
+        <br><br>
+        A few terms are unambiguously services. They typically indicate agency by ending in "-er". You may prefer to
+        name a service that logs messages <strong>Logger</strong> rather than <strong>LoggerService</strong>. Decide if
+        this exception is agreeable in
+        your project. As always, strive for consistency.
+        <br>
+        <strong>Why?</strong> Provides a consistent way to quickly identify and reference services.
+        <br>
+        <strong>Why?</strong> Clear service names such as <strong>Logger</strong> do not require a suffix.
+        <br>
+        <strong>Why?</strong> Service names such as <strong>Credit</strong> are nouns and require a suffix and should be
+        named with a suffix when it is
+        not obvious if it is a service or something else.
+    </p>
+
+    <table class="table table-bordered border-black">
+        <thead>
+            <tr>
+                <th>Symbol name</th>
+                <th>File name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{code17}}</td>
+                <td>hero-data.service.ts</td>
+            </tr>
+            <tr>
+                <td>{{code18}}</td>
+                <td>credit.service.ts</td>
+            </tr>
+            <tr>
+                <td>{{code19}}</td>
+                <td>logger.service.ts</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Bootstrapping</p>
+    <mat-card class="shadow code">
+        <pre>{{code20}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Component selectors</p>
+    <p>
+        <strong>Do</strong> use dashed-case or kebab-case for naming the element selectors of components.
+        <br>
+        <strong>Why?</strong> Keeps the element names consistent with the specification for Custom Elements.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code21}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code22}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code23}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Component custon prefix</p>
+    <p>
+        <strong>Do</strong> use a hyphenated, lowercase element selector value; for example,
+        <strong>admin-users</strong>.
+        <br>
+        <strong>Do</strong> use a custom prefix for a component selector. For example, the prefix <strong>toh</strong>
+        represents Tour of Heroes and the
+        prefix admin represents an <strong>admin</strong> feature area.
+        <br>
+        <strong>Do</strong> use a prefix that identifies the feature area or the application itself.
+        <br>
+        <strong>Why?</strong> Prevents element name collisions with components in other applications and with native
+        HTML elements.
+        <br>
+        <strong>Why?</strong> Makes it easier to promote and share the component in other applications.
+        <br>
+        <strong>Why?</strong> Components are easy to identify in the DOM.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code24}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code25}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code26}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code27}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Directive custon prefix</p>
+    <p>
+        <strong>Do</strong> use a custom prefix for the selector of directives (for example, the prefix toh from Tour of
+        Heroes).
+        <br>
+        <strong>Do</strong> spell non-element selectors in lower camel case unless the selector is meant to match a
+        native HTML
+        attribute.
+        <br>
+        Don't prefix a directive name with ng because that prefix is reserved for Angular and using it could cause bugs
+        that are difficult to diagnose.
+        <br>
+        <strong>Why?</strong> Prevents name collisions.
+        <br>
+        <strong>Why?</strong> Directives are easily identified.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code28}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code29}}</pre>
+    </mat-card>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Pipe name</p>
+    <p>
+        <strong>Do</strong> use consistent names for all pipes, named after their feature. The pipe class name should
+        use UpperCamelCase
+        (the general convention for class names), and the corresponding name string should use lowerCamelCase. The
+        <strong>name</strong>
+        string cannot use hyphens ("dash-case" or "kebab-case").
+        <br>
+        <strong>Why?</strong> Provides a consistent way to quickly identify and reference pipes.
+    </p>
+
+    <table class="table table-bordered border-black">
+        <thead>
+            <tr>
+                <th>Symbole name</th>
+                <th>File name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{code30}}</td>
+                <td>ellipsis.pipe.ts</td>
+            </tr>
+            <tr>
+                <td>{{code31}}</td>
+                <td>init-caps.pipe.ts</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Overall structural guidelines</p>
+    <mat-card class="shadow code">
+        <pre>{{code32}}</pre>
+    </mat-card>
+    <p class="alert alert-secondary">
+        While components in dedicated folders are widely preferred, another option for small applications is to keep
+        components flat (not in a dedicated folder). This adds up to four files to the existing folder, but also reduces
+        the folder nesting. Whatever you choose, be consistent.
+    </p>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">App route module</p>
+    <mat-card class="shadow code">
+        <pre>{{code33}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Shared feature module</p>
+    <p>
+        <strong>Do</strong> create a feature module named <strong>SharedModule</strong> in a <strong>shared</strong>
+        folder; for example,
+        <strong>app/shared/shared.module.ts</strong> defines <strong>SharedModule</strong>.
+        <br>
+        <strong>Do</strong> declare components, directives, and pipes in a shared module when those items will be
+        re-used and referenced by the components declared in other feature modules.
+        <br>
+        Consider using the name <strong>SharedModule</strong> when the contents of a shared module are referenced across
+        the entire
+        application.
+        <br>
+        Consider not providing services in shared modules. Services are usually singletons that are provided once for
+        the entire application or in a particular feature module. There are exceptions, however. For example, in the
+        sample code that follows, notice that the <strong>SharedModule</strong> provides
+        <strong>FilterTextService</strong>. This is acceptable here
+        because the service is stateless;that is, the consumers of the service aren't impacted by new instances.
+        <br>
+        <strong>Do</strong> import all modules required by the assets in the <strong>SharedModule</strong>; for example,
+        CommonModule and
+        <strong>FormsModule</strong>.
+        <br>
+        <strong>Why?</strong> <strong>SharedModule</strong> will contain components, directives, and pipes that may need
+        features from another common
+        module; for example, ngFor in CommonModule.
+        <br>
+        <strong>Do</strong> declare all components, directives, and pipes in the SharedModule.
+        <br>
+        <strong>Do</strong> export all symbols from the SharedModule that other feature modules need to use.
+        <br>
+        <strong>Why?</strong> <strong>SharedModule</strong> exists to make commonly used components, directives, and
+        pipes available for
+        use in the templates of components in many other modules.
+        <br>
+        Avoid specifying app-wide singleton providers in a SharedModule. Intentional singletons are OK. Take care.
+        <br>
+        <strong>Why?</strong> A lazy loaded feature module that imports that shared module will make its own copy of the
+        service and likely have undesirable results.
+        <br>
+        <strong>Why?</strong> You don't want each module to have its own separate instance of singleton services. Yet
+        there is a real danger of that happening if the <strong>SharedModule</strong> provides a service.
+    </p>
+    <mat-card class="shadow code">
+        <pre>{{code34}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code35}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code36}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code37}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code38}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code39}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code40}}</pre>
+    </mat-card>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">lazy loaded form</p>
+    <p>
+        A distinct application feature or workflow may be lazy loaded or loaded on demand rather than when the
+        application starts.
+        <br><br>
+        <strong>Do</strong> put the contents of lazy loaded features in a lazy loaded folder. A typical lazy loaded
+        folder contains a routing component, its child components, and their related assets and modules.
+        <br>
+        <strong>Why?</strong> The folder makes it easy to identify and isolate the feature content.
+    </p>
+
+    <h2 class="fw-bold title">Component</h2>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Component as element</p>
+
+    <p>
+        <strong>Consider</strong> giving components an element selector, as opposed to attribute or class selectors.
+        <br>
+        <strong>Why?</strong> Components have templates containing HTML and optional Angular template syntax. They
+        display
+        content. Developers place components on the page as they would native HTML elements and web components.
+        <br>
+        <strong>Why?</strong> It is easier to recognize that a symbol is a component by looking at the template's htm
+    </p>
+    <p class="alert alert-secondary">
+        There are a few cases where you give a component an attribute, such as when you want to augment a built-in
+        element. For example, Material Design uses this technique with <strong>{{'\<button mat-button>'}}</strong>.
+        However, you wouldn't use
+        this technique on a custom element.
+    </p>
+
+    <mat-card class="shadow code">
+        <pre>{{code41}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code42}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code43}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code44}}</pre>
+    </mat-card>
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Extract templates and styles to their own files</p>
+    <p>
+        <strong>Do</strong> extract templates and styles into a separate file, when more than 3 lines.
+        <br>
+        <strong>Do</strong> name the template file <strong>[component-name].component.html</strong>, where
+        [component-name] is the
+        component name.
+        <br>
+        <strong>Do</strong> name the style file <strong>[component-name].component.css</strong>, where [component-name]
+        is the component
+        name.
+        <br>
+        <strong>Do</strong> specify component-relative URLs, prefixed with <strong>./</strong>.
+        <br>
+        <strong>Why?</strong> Large, inline templates and styles obscure the component's purpose and implementation,
+        reducing readability and maintainability.
+        <br>
+        <strong>Why?</strong> In most editors, syntax hints and code snippets aren't available when developing inline
+        templates and styles. The Angular TypeScript Language Service (forthcoming) promises to overcome this deficiency
+        for HTML templates in those editors that support it; it won't help with CSS styles.
+        <br>
+        <strong>Why?</strong> A component relative URL requires no change when you move the component files, as long as
+        the files stay together.
+        <br>
+        <strong>Why?</strong> The <strong>./</strong> prefix is standard syntax for relative URLs; don't depend on
+        Angular's current
+        ability to do without that prefix.
+    </p>
+
+    <mat-card class="shadow code">
+        <pre>{{code45}}</pre>
+    </mat-card>
+
+    <mat-card class="shadow code">
+        <pre>{{code46}}</pre>
+    </mat-card>
+
+    <mat-card class="shadow code">
+        <pre>{{code47}}</pre>
+    </mat-card>
+
+    <mat-card class="shadow code">
+        <pre>{{code48}}</pre>
+    </mat-card>
+
+    <p class="bg-primary-subtle py-1 ps-2 mt-2">Avoid aliasing inputs and outputs</p>
+    <p>
+        Avoid <strong>input</strong> and <strong>output</strong> aliases except when it serves an important purpose.
+        <br>
+        Why? Two names for the same property (one private, one public) is inherently confusing.
+        <br>
+        Why? You should use an alias when the directive name is also an <strong>input</strong> property, and the directive name doesn't
+        describe the property.
+    </p>
+
+    <mat-card class="shadow code">
+        <pre>{{code49}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code50}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code51}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code52}}</pre>
+    </mat-card>
+    <mat-card class="shadow code">
+        <pre>{{code53}}</pre>
+    </mat-card>
+</div>

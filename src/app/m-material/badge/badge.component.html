@@ -1,0 +1,115 @@
+<div class="mt-4">
+   <div class="width-600 lh-text">
+      Badges are small status descriptors for UI elements. A badge consists of a small circle, typically containing a
+      number or other short set of characters, that appears in proximity to another object. <br><br>
+      Badges must always be applied to block-level elements.
+   </div>
+   
+   <!-- output -->
+   <div>
+      <div matBadge="4" matBadgeOverlap="false" class="demo-section">Text with a badge</div>
+
+      <div matBadge="1" matBadgeSize="large" class="demo-section">Text with large badge</div>
+   </div>
+
+   <div class="demo-section">
+      Button with a badge on the left
+      <button mat-raised-button color="primary" matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+         Action
+      </button>
+   </div>
+   <br>
+   <div class="demo-section">
+      Button toggles badge visibility
+      <button mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+         Hide
+      </button>
+   </div>
+
+   <div class="demo-section">
+      Icon with a badge
+      <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+      <!-- Include text description of the icon's meaning for screen-readers -->
+      <span class="cdk-visually-hidden">
+         Example with a home icon with overlaid badge showing the number 15
+      </span>
+   </div>
+   <!-- output -->
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code1}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Badge position</h3><br>
+      By default, the badge will be placed above after. The direction can be changed by defining the attribute
+      matBadgePosition follow by above|below and before|after.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code2}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      The overlap of the badge in relation to its inner contents can also be defined using the matBadgeOverlap tag.
+      Typically, you want the badge to overlap an icon and not a text phrase. By default it will overlap.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code3}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Badge sizing</h3> <br>
+      The badge has 3 sizes: small, medium and large. By default, the badge is set to medium. You can change the size by
+      adding matBadgeSize to the host element.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code4}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Badge visibility</h3>
+      The badge visibility can be toggled programmatically by defining matBadgeHidden.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code5}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Badge Therming</h3>
+      Badges can be colored in terms of the current theme using the matBadgeColor property to set the background color
+      to primary, accent, or warn.
+   </div>
+
+   <div class="card mb-4 width-600 mt-3 p-2">
+      <pre>
+         {{code6}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accesibility</h3>
+      You must provide a meaningful description via matBadgeDescription. When attached to an interactive element,
+      MatBadge applies this description to its host via aria-describedby. When attached to a non-interactive element,
+      MatBadge appends a visually-hidden, inline description element. The badge determines interactivity based on
+      whether the host element is focusable.
+      When applying a badge to a , it is important to know that is aria-hidden="true" by default. If the combination of
+      icon and badge communicates meaningful information, always surface this information in another way. See the
+      guidance on indicator icons for more information.
+   </div>
+
+</div>
+

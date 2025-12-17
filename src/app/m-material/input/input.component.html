@@ -1,0 +1,234 @@
+<div class="mt-4 align-items-end mb-4">
+    <div class="width-600 lh-text">
+        matInput is a directive that allows native &lt;input> and &lt;textarea> elements to work with
+        &lt;mat-form-field>.
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Grid List</p>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex. Jean" value="">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+    </form>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section1HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                        {{ code1 }}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section2HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                        {{ code2 }}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">input and textarea attributes</h3>
+        All of the attributes that can be used with &lt;input> and &lt;textarea> elements can be used on elements inside
+        &lt;mat-form-field> as well. This includes Angular directives such as ngModel and formControl. <br><br>
+
+        The only limitation is that the type attribute can only be one of the values supported by
+        matNativeControl.
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">input and textarea attributes</h3>
+        The following input types can be used with matNativeControl:
+        <ul class="note">
+            <li>color</li>
+            <li>date</li>
+            <li>datetime-local</li>
+            <li>email</li>
+            <li>month</li>
+            <li>number</li>
+            <li>password</li>
+            <li>search</li>
+            <li>tel</li>
+            <li>text</li>
+            <li>time</li>
+            <li>url</li>
+            <li>week</li>
+        </ul>
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Form fields features</h3>
+        There are a number of &lt;mat-form-field> features that can be used with any &lt;input matNativeControl> or
+        &lt;textarea matNativeControl>. These include error messages, hint text, prefix & suffix, and theming.
+        For additional
+        information about these features, see the form field documentation.
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Placeholder</h3>
+        The placeholder is text shown when the &lt;mat-form-field> label is floating but the input is empty. It is used
+        to
+        give the user an additional hint about what they should type in the input. The placeholder can be specified
+        by
+        setting the placeholder attribute on the &lt;input> or &lt;textarea> element. In some cases that
+        &lt;mat-form-field>
+        may use the placeholder as the label (see the form field label documentation).
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Changing when error message are shown</h3>
+        The < mat-form-field> allows you to associate error messages with your matNativeControl. By default, these error
+            messages are shown when the control is invalid and the user has interacted with (touched) the element or the
+            parent form has been submitted. If you wish to override this behavior (e.g. to show the error as soon as the
+            invalid control is dirty or when a parent form group is invalid), you can use the errorStateMatcher property
+            of
+            the matNativeControl. The property takes an instance of an ErrorStateMatcher object. An ErrorStateMatcher
+            must
+            implement a single method isErrorState which takes the FormControl for this matNativeControl as well as the
+            parent form and returns a boolean indicating whether errors should be shown. (true indicating that they
+            should
+            be shown, and false indicating that they should not.)
+    </div>
+
+    <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Input with a custom ErrorStateMatcher</p>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+            }
+            @if (emailFormControl.hasError('required')) {
+            <mat-error>Email is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+    </form>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="card width-600">
+            <div class="card-header " role="tab" id="section3HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                        component
+                    </a>
+                </h5>
+            </div>
+            <div id="section3ContentId" class="collapse in" role="tabpanel" aria-labelledby="section3HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code3 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+        <div class="card width-600">
+            <div class="card-header" role="tab" id="section4HeaderId">
+                <h5 class="mb-0">
+                    <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                        href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                        HTML
+                    </a>
+                </h5>
+            </div>
+            <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+                <div class="card-body">
+                    <pre class="pt-4">
+                  {{ code4 }}
+               </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        A global error state matcher can be specified by setting the ErrorStateMatcher provider. This applies to all
+        inputs. For convenience, ShowOnDirtyErrorStateMatcher is available in order to globally cause input errors to
+        show
+        when the input is dirty and invalid.
+    </div>
+
+    <div class="card p-2 width-600">
+        <pre>
+         {{ c1 }}
+      </pre>
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Auto-resizing &lt;textarea> elements</h3>
+        &lt;textarea> elements can be made to automatically resize by using the cdkTextareaAutosize directive available in
+            the CDK.
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Responding to changes in the autofill state of an < input>
+        </h3>
+        The CDK provides utilities for detecting when an input becomes autofilled and changing the appearance of the
+        autofilled state.
+
+
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Accessibility</h3>
+        The matNativeControl directive works with native &lt;input> to provide an accessible experience.
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Aria attributes</h3>
+        If the containing &lt;mat-form-field> has a label it will automatically be used as the aria-label for the
+        &lt;input>
+        .
+        However, if there's no label specified in the form field, aria-label, aria-labelledby or &lt;label
+        for=...>
+        should be added.
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Error hints</h3>
+        Any mat-error and mat-hint are automatically added to the input's aria-describedby list, and aria-invalid is
+        automatically updated based on the input's validity state. <br><br>
+
+        When conveying an error, be sure to not rely solely on color. In the message itself, you can use an icon or text
+        such as "Error:" to indicate the message is an error message.
+    </div>
+
+    <div class="width-600 lh-text mt-4">
+        <h3 class="fw-bold">Troubleshooting</h3>
+        This error is thrown when you attempt to set an input's type property to a value that isn't supported by the
+        matInput directive. If you need to use an unsupported input type with &lt;mat-form-field> consider writing a
+            custom
+            form field control for it.
+    </div>
+
+
+</div>

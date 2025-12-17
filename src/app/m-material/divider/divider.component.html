@@ -1,0 +1,98 @@
+<div class="mt-4 align-items-end">
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Basic Divider</p>
+      <mat-list>
+         <mat-list-item>Item 1</mat-list-item>
+         <mat-divider></mat-divider>
+         <mat-list-item>Item 2</mat-list-item>
+         <mat-divider></mat-divider>
+         <mat-list-item>Item 3</mat-list-item>
+       </mat-list>       
+
+   <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold"></h3>
+      A < mat-divider> element can be used on its own to create a horizontal or vertical line styled with a Material theme
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>
+         {{c1}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Inset divider</h3>
+      Add the inset attribute in order to set whether or not the divider is an inset divider.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>
+         {{c2}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Vertical divider</h3>
+      Add the vertical attribute in order to set whether or not the divider is vertically-oriented.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>
+         {{c3}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Lists with inset dividers</h3>
+      Dividers can be added to lists as a means of separating content into distinct sections. Inset dividers can also be added to provide the appearance of distinct elements in a list without cluttering content like avatar images or icons. Make sure to avoid adding an inset divider to the last element in a list, because it will overlap with the section divider.
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>
+         {{c4}}
+      </pre>
+   </div>
+
+   <div class="width-600 lh-text mt-4">
+      <h3 class="fw-bold">Accessibility</h3>
+      MatDivider applies the ARIA role="separator" attribute, exclusively implementing the non-focusable style of separator that distinguishes sections of content.
+   </div>
+
+
+</div>

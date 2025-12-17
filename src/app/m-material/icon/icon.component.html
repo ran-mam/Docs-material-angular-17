@@ -1,0 +1,20 @@
+<div class="mt-4 align-items-end">
+   <table class="table">
+      <thead>
+         <tr>
+            <th>icon_name</th>
+            <th>mat_icon_angular</th>
+         </tr>
+      </thead>   
+      <tbody>
+         @for(icon of icons; track icon) {
+            <tr>
+               <td>{{'<'}}mat-icon{{'>'}}<span class="name-icon">{{icon}}</span>{{"<"}}/mat-icon{{'>'}}</td>
+               <td>
+                  <mat-icon>{{icon}}</mat-icon>
+               </td>
+            </tr>
+         }
+      </tbody>
+   </table>
+</div>

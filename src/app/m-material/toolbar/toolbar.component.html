@@ -1,0 +1,144 @@
+<div class="mt-4 align-items-end mb-4">
+   <div class="width-600 lh-text">
+      &lt;mat-toolbar> is a container for headers, titles, or actions.
+   </div>
+
+   <p class="mt-4 text-bg-primary text-center p-2 rounded-5">Stepper overview</p>
+   <p>
+      <mat-toolbar>
+        <span>My Application</span>
+      </mat-toolbar>
+    </p>
+    
+    <p>
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+    
+    <p>
+      <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+    
+    <p>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span>My App</span>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-toolbar-row>
+    
+        <mat-toolbar-row>
+          <span>Second Line</span>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </p>
+
+    <div class="mb-4 mt-4" id="accordianId" role="tablist" aria-multiselectable="true">
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                  component
+               </a>
+            </h5>
+         </div>
+         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code1}}
+               </pre>
+            </div>
+         </div>
+      </div>
+      <div class="card width-600">
+         <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+               <a class="nav-link text-center" data-bs-toggle="collapse" data-bs-parent="#accordianId"
+                  href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                  HTML
+               </a>
+            </h5>
+         </div>
+         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+               <pre class="pt-4">
+                  {{code2}}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </div>
+
+    <h3 class="width-600 lh-text fw-bold">Single row</h3>
+
+    <div class="card width-600 p-2">
+      <pre>{{c1}}</pre>
+   </div>
+
+   <h3 class="width-600 lh-text fw-bold">Multiples row</h3>
+    
+    <div class="card width-600 p-2">
+      <pre>{{c2}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Positioning toolbar content</h3>
+      A common pattern is to position a title on the left with some actions on the right. This can be easily accomplished with display: flex:
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c3}}</pre>
+   </div>
+
+   <div class="card width-600 p-2">
+      <pre>{{c4}}</pre>
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Theming</h3>
+      The color of a &lt;mat-toolbar> can be changed by using the color property. By default, toolbars use a neutral background color based on the current theme (light or dark). This can be changed to 'primary', 'accent', or 'warn'.
+   </div>
+
+   <div class="width-600 lh-text">
+      <h3 class="fw-bold">Accesibilty</h3>
+      By default, the toolbar assumes that it will be used in a purely decorative fashion and thus sets no roles, ARIA attributes, or keyboard shortcuts. This is equivalent to having a sequence of &lt;div> elements on the page. <br>
+
+         Generally, the toolbar is used as a header where role="heading" would be appropriate. <br><br>
+         
+         Only if the use-case of the toolbar match that of role="toolbar", the user should add the role and an appropriate label via aria-label or aria-labelledby.
+   </div>
+
+</div>
